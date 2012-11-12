@@ -4,6 +4,8 @@ class Song < ActiveRecord::Base
   belongs_to :artist
   has_many :sing_logs
 
+  validates_presence_of :name
+
   default_scope order('last_sang_at DESC')
 
   def singing!
