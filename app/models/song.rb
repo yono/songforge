@@ -13,6 +13,10 @@ class Song < ActiveRecord::Base
     sing_log.save!
   end
 
+  def sang?
+    !self.last_sang_at.nil?
+  end
+
   module UnionHack
     def union(*relations)
       from '((' + relations.map { |r| r.to_sql }.join(') UNION (') + ')) AS ' + self.table_name
