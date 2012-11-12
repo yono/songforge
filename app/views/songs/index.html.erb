@@ -11,8 +11,6 @@
     <th>曲名</th>
     <th>歌った？</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
   </thead>
 
@@ -22,9 +20,9 @@
     <td><%= button_to('歌った!', singing_path(song), :class => 'btn btn-mini') %>
     <td><%= song.name %></td>
     <td><%= song.sang? ? '<i class="icon-ok"></i>'.html_safe : "" %></td>
-    <td><%= link_to '<i class="icon-zoom-in"></i>'.html_safe, song %></td>
-    <td><%= link_to '<i class="icon-pencil"></i>'.html_safe, edit_song_path(song) %></td>
-    <td><%= link_to '<i class="icon-trash"></i>'.html_safe, song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to '<i class="icon-zoom-in"></i>'.html_safe, song %><br/>
+        <%= link_to '<i class="icon-pencil"></i>'.html_safe, edit_song_path(song) %><br/>
+        <%= link_to '<i class="icon-trash"></i>'.html_safe, song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
   </tbody>
