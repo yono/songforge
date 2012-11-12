@@ -7,6 +7,8 @@ KaraokeSongs::Application.routes.draw do
 
   root :to => 'songs#index'
 
+  match 'songs/:id/singing' => 'songs#singing', :as => :singing
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

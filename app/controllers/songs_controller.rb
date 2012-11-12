@@ -2,7 +2,10 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
-    @songs = Song.all
+    @unsing = Song.where(:last_sang_at => nil)
+    @already = Song.where('last_sang_at IS NOT NULL')
+
+    @songs = @unsing.to_a + @already.to_a
 
     respond_to do |format|
       format.html # index.html.erb
@@ -78,6 +81,15 @@ class SongsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to songs_url }
       format.json { head :no_content }
+    end
+  end
+
+  def singing
+    @song = Song.find(params[:id])
+    @song.singing!
+
+    respond_to do |format|
+      format.html { redirect_to songs_url }
     end
   end
 end
