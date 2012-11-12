@@ -9,7 +9,7 @@
   <tr>
     <th></th>
     <th>曲名</th>
-    <th>歌った？</th>
+    <th></th>
     <th></th>
   </tr>
   </thead>
@@ -17,11 +17,11 @@
   <tbody>
 <% @songs.each do |song| %>
   <tr>
-    <td><%= button_to('歌った!', singing_path(song), :class => 'btn btn-mini') %>
+    <td><%= song.sang? ? link_to('<i class="icon-star"></i>'.html_safe, singing_path(song)) : 
+                         link_to('<i class="icon-star-empty"></i>'.html_safe, singing_path(song)) %></td>
     <td><%= link_to song.name , song %></td>
-    <td><%= song.sang? ? '<i class="icon-ok"></i>'.html_safe : "" %></td>
     <td>
-        <%= link_to '<i class="icon-pencil"></i>'.html_safe, edit_song_path(song) %><br/>
+      <%= link_to '<i class="icon-pencil"></i>'.html_safe, edit_song_path(song) %></td><td>
         <%= link_to '<i class="icon-trash"></i>'.html_safe, song, method: :delete, data: { confirm: 'Are you sure?' } %>
     </td>
   </tr>
