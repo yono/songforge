@@ -5,6 +5,8 @@ KaraokeSongs::Application.routes.draw do
 
   resources :artists
 
+  root :to => 'songs#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
