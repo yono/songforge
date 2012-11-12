@@ -20,6 +20,6 @@
     <%= f.collection_select 'artist_id', Artist.all, :id, :name %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit '決定', :class => 'btn'%>
   </div>
 <% end %>
