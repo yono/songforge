@@ -16,11 +16,4 @@ class Song < ActiveRecord::Base
   def sang?
     !self.last_sang_at.nil?
   end
-
-  module UnionHack
-    def union(*relations)
-      from '((' + relations.map { |r| r.to_sql }.join(') UNION (') + ')) AS ' + self.table_name
-    end
-  end
-  extend UnionHack
 end
