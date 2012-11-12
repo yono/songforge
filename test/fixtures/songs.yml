@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  artist_id: 1
+  last_sang_at: 2012-11-12 11:13:54
+
+two:
+  name: MyString
+  artist_id: 1
+  last_sang_at: 2012-11-12 11:13:54

@@ -1,0 +1,23 @@
+<h1>Listing sing_logs</h1>
+
+<table>
+  <tr>
+    <th>Song</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sing_logs.each do |sing_log| %>
+  <tr>
+    <td><%= sing_log.song_id %></td>
+    <td><%= link_to 'Show', sing_log %></td>
+    <td><%= link_to 'Edit', edit_sing_log_path(sing_log) %></td>
+    <td><%= link_to 'Destroy', sing_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sing log', new_sing_log_path %>

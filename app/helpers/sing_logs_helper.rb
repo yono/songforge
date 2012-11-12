@@ -1,0 +1,2 @@
+module SingLogsHelper
+end
