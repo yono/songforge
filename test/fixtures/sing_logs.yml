@@ -1,7 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
+strength1:
   song_id: 1
 
-two:
+jap:
+  song_id: 2
+
+rewrite:
+  song_id: 3
+
+daydream_generation:
+  song_id: 5
+
+hohoemi:
+  song_id: 6
+
+strength2:
   song_id: 1

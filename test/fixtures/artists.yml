@@ -1,7 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
+abingdon:
+  name: abingdon boys school
 
-two:
-  name: MyString
+asian:
+  name: ASIAN KUNG-FU GENERATION
+
+mawatari:
+  name: 馬渡松子

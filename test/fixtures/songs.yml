@@ -1,11 +1,36 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
+strength:
+  name: STRENGTH
   artist_id: 1
-  last_sang_at: 2012-11-12 11:13:54
+  last_sang_at: <%= DateTime.now %>
 
-two:
-  name: MyString
+jap:
+  name: JAP
   artist_id: 1
-  last_sang_at: 2012-11-12 11:13:54
+  last_sang_at: <%= DateTime.now - 0.01 %>
+
+rewrite:
+  name: リライト
+  artist_id: 2
+  last_sang_at: <%= DateTime.now - 0.02 %>
+
+worldapart:
+  name: ワールドアパート
+  artist_id: 2
+  last_sang_at:
+
+daydream_generation:
+  name: デイドリームジェネレーション
+  artist_id: 3
+  last_sang_at: <%= DateTime.now - 3 %>
+
+hohoemi:
+  name: 微笑みの爆弾
+  artist_id: 3
+  last_sang_at: <%= DateTime.now - 3.01 %>
+
+homework:
+  name: ホームワークが終わらない
+  artist_id: 3
+  last_sang_at:
