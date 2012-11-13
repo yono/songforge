@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121113065528) do
+ActiveRecord::Schema.define(:version => 20121113121051) do
 
   create_table "artists", :force => true do |t|
     t.string   "name"
@@ -21,8 +21,10 @@ ActiveRecord::Schema.define(:version => 20121113065528) do
 
   create_table "sing_logs", :force => true do |t|
     t.integer  "song_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "song_name"
+    t.string   "artist_name"
   end
 
   create_table "songs", :force => true do |t|
