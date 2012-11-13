@@ -2,13 +2,16 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
-    unsing = Song.where(:last_sang_at => nil)
-    already = Song.where('last_sang_at IS NOT NULL')
+    unsing = Song.includes(:artist).where(:last_sang_at => nil)
+    already = Song.includes(:artist).where('last_sang_at IS NOT NULL')
 
     unless params[:q].blank?
-      t = Song.arel_table
-      unsing = unsing.where(t[:name].matches("%" + params[:q] + "%"))
-      already = already.where(t[:name].matches("%" + params[:q] + "%"))
+      query = "%" + params[:q] + "%"
+      song_cond = Song.arel_table[:name].matches(query)
+      artist_cond = Artist.arel_table[:name].matches(query)
+      search_cond = song_cond.or artist_cond
+      unsing = unsing.where(search_cond)
+      already = already.where(search_cond)
     end
 
     all_songs = unsing.to_a + already.to_a
