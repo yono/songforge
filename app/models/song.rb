@@ -35,7 +35,7 @@ class Song < ActiveRecord::Base
   end
 
   def has_movie?
-    return !self.movie_url.nil?
+    return !self.movie_url.blank?
   end
 
   def lyrics_file= (l)
@@ -46,7 +46,7 @@ class Song < ActiveRecord::Base
   end
 
   def has_lyrics_file?
-    return !self.lyrics_image.nil?
+    return !self.lyrics_image.blank?
   end
 
 end
