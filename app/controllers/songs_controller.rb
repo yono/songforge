@@ -2,10 +2,11 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
-    @unsing = Song.where(:last_sang_at => nil)
-    @already = Song.where('last_sang_at IS NOT NULL')
+    unsing = Song.where(:last_sang_at => nil)
+    already = Song.where('last_sang_at IS NOT NULL')
 
-    @songs = @unsing.to_a + @already.to_a
+    all_songs = unsing.to_a + already.to_a
+    @songs = Kaminari.paginate_array(all_songs).page(params[:page]).per(20)
 
     respond_to do |format|
       format.html # index.html.erb

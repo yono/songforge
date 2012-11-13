@@ -2,7 +2,7 @@ class SingLogsController < ApplicationController
   # GET /sing_logs
   # GET /sing_logs.json
   def index
-    @sing_logs = SingLog.all
+    @sing_logs = Kaminari.paginate_array(SingLog.all).page(params[:page]).per(20)
 
     respond_to do |format|
       format.html # index.html.erb

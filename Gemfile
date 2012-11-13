@@ -7,6 +7,7 @@ gem 'rails', '3.2.8'
 
 gem 'thin'
 gem 'twitter-bootstrap-rails'
+gem 'kaminari'
 
 group :development, :test do
   gem 'sqlite3'
