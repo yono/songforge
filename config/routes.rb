@@ -1,7 +1,11 @@
 KaraokeSongs::Application.routes.draw do
   resources :sing_logs
 
-  resources :songs
+  resources :songs do
+    member do
+      get :lyrics_image
+    end
+  end
 
   resources :artists
 
