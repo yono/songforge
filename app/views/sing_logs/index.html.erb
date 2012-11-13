@@ -12,8 +12,8 @@
   <tbody>
 <% @sing_logs.each do |sing_log| %>
   <tr>
-    <td><%= sing_log.song.name %></td>
-    <td><%= sing_log.song.artist.name %></td>
+    <td><%= link_to sing_log.song.name, sing_log.song %></td>
+    <td><%= link_to sing_log.song.artist.name, sing_log.song.artist %></td>
     <td><%= sing_log.sang_at %></td>
   </tr>
 <% end %>
