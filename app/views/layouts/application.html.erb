@@ -50,7 +50,7 @@
               <li><%= link_to "歌手一覧", "/artists"  %></li>
             </ul>
             <%= form_tag root_path, :class => 'form-search', :method => 'GET' do %>
-              <%= text_field_tag :q, nil, :class => 'input-medium search-query' %>
+              <%= text_field_tag :q, params[:q], :class => 'input-medium search-query' %>
               <%= submit_tag "検索", :class => 'btn' %>
             <% end %>
           </div><!--/.nav-collapse -->
