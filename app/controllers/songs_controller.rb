@@ -5,6 +5,12 @@ class SongsController < ApplicationController
     unsing = Song.where(:last_sang_at => nil)
     already = Song.where('last_sang_at IS NOT NULL')
 
+    unless params[:q].blank?
+      t = Song.arel_table
+      unsing = unsing.where(t[:name].matches("%" + params[:q] + "%"))
+      already = already.where(t[:name].matches("%" + params[:q] + "%"))
+    end
+
     all_songs = unsing.to_a + already.to_a
     @songs = Kaminari.paginate_array(all_songs).page(params[:page]).per(20)
 
