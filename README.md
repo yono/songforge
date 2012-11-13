@@ -2,6 +2,8 @@
 
 KaraokeSongs organize songs for karaoke.
 
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/yono/karaoke_songs)
+
 ## Dependency
 
 * Ruby 1.9.3
