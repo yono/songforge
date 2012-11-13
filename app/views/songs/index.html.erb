@@ -19,7 +19,11 @@
   <tr>
     <td><%= song.sang? ? link_to('<i class="icon-star"></i>'.html_safe, singing_song_path(song)) : 
                          link_to('<i class="icon-star-empty"></i>'.html_safe, singing_song_path(song)) %></td>
-    <td><%= link_to song.name , song %></td>
+    <% if song.artist.nil? -%>
+      <td><%= link_to song.name , song %></td>
+    <% else -%>
+      <td><%= link_to "#{song.name} [#{song.artist.name}]", song %></td>
+    <% end -%>
     <td>
       <%= link_to '<i class="icon-pencil"></i>'.html_safe, edit_song_path(song) %></td><td>
         <%= link_to '<i class="icon-trash"></i>'.html_safe, song, method: :delete, data: { confirm: 'Are you sure?' } %>
