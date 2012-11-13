@@ -3,6 +3,7 @@ KaraokeSongs::Application.routes.draw do
 
   resources :songs do
     member do
+      get :singing
       get :lyrics_image
     end
   end
@@ -11,7 +12,7 @@ KaraokeSongs::Application.routes.draw do
 
   root :to => 'songs#index'
 
-  match 'songs/:id/singing' => 'songs#singing', :as => :singing
+  #match 'songs/:id/singing' => 'songs#singing', :as => :singing
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
