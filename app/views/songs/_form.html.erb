@@ -17,7 +17,8 @@
   </div>
   <div class="field">
     <%= f.label :artist_id %>
-    <%= f.collection_select 'artist_id', Artist.all, :id, :name %>  <%= link_to '歌手追加', new_artist_path, {:hoge => 'hoge'} %>
+    <%= f.collection_select 'artist_id', Artist.all, :id, :name, :include_blank => true %>  
+    <%= f.text_field :artist_name, :placeholder => '歌手を新規追加する場合' %>
   </div>
   <div class="field">
     <%= f.label :movie_url %>

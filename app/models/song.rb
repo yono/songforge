@@ -1,7 +1,7 @@
 require 'uri'
 
 class Song < ActiveRecord::Base
-  attr_accessible :artist_id, :last_sang_at, :name, :movie_url, :youtube_v, :lyrics_file, :has_movie?
+  attr_accessible :artist_id, :last_sang_at, :name, :movie_url, :youtube_v, :lyrics_file, :has_movie?, :artist_name
 
   belongs_to :artist
   has_many :sing_logs
@@ -49,6 +49,18 @@ class Song < ActiveRecord::Base
 
   def has_lyrics_file?
     return !self.lyrics_image.blank?
+  end
+
+  def artist_name
+  end
+
+  def artist_name= (a)
+    unless a.blank?
+      artist = Artist.new
+      artist.name = a
+      artist.save!
+      self.artist_id = artist.id
+    end
   end
 
 end

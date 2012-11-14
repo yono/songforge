@@ -6,7 +6,11 @@
 
 <p>
   <b>歌手:</b>
-  <%= link_to @song.artist.name, @song.artist %>
+  <% if @song.artist.nil? -%>
+    <b>未設定</b>
+  <% else -%>
+    <%= link_to @song.artist.name, @song.artist %>
+  <% end -%>
 </p>
 
 <p>
