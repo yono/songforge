@@ -1,4 +1,4 @@
-KaraokeSongs::Application.routes.draw do
+SongForge::Application.routes.draw do
   resources :sing_logs
 
   resources :songs do

@@ -1,6 +1,6 @@
-# KaraokeSongs
+# SongForge
 
-KaraokeSongs organize songs for karaoke.
+SongForge organize songs for karaoke.
 
 [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/yono/karaoke_songs)
 
@@ -15,8 +15,8 @@ KaraokeSongs organize songs for karaoke.
 clone this repository.
 
 ```bash
-$ git clone https://github.com/yono/karaoke_songs.git
-$ cd karaoke_songs
+$ git clone https://github.com/yono/songforge.git
+$ cd songforge
 ```
 
 install gems by bundler
