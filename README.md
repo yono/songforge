@@ -2,7 +2,7 @@
 
 SongForge organize songs for karaoke.
 
-[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/yono/karaoke_songs)
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/yono/songforge)
 
 ## Dependency
 
