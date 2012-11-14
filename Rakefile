@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-KaraokeSongs::Application.load_tasks
+SongForge::Application.load_tasks
