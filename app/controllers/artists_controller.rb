@@ -40,7 +40,7 @@ class ArtistsController < ApplicationController
   # POST /artists
   # POST /artists.json
   def create
-    @artist = Artist.new(params[:artist])
+    @artist = Artist.new(artist_params)
 
     respond_to do |format|
       if @artist.save
@@ -59,7 +59,7 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
 
     respond_to do |format|
-      if @artist.update_attributes(params[:artist])
+      if @artist.update_attributes(artist_params)
         format.html { redirect_to @artist, notice: 'Artist was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,4 +80,11 @@ class ArtistsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+    def artist_params
+      params.require(:artist).permit(:name)
+    end
+
 end

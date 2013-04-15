@@ -53,7 +53,12 @@ class SongsController < ApplicationController
   # POST /songs
   # POST /songs.json
   def create
-    @song = Song.new(params[:song])
+    @song = Song.new(song_params)
+    if params.has_key? :artist_name
+      artist = Artist.new(song_params)
+      artist.save
+      @song.artist_id = artist.id
+    end
 
     respond_to do |format|
       if @song.save
@@ -72,7 +77,7 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
 
     respond_to do |format|
-      if @song.update_attributes(params[:song])
+      if @song.update_attributes(song_params)
         format.html { redirect_to @song, notice: 'Song was successfully updated.' }
         format.json { head :no_content }
       else
@@ -107,5 +112,11 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
     send_data(@song.lyrics_image, :type => @song.content_type)
   end
+
+  private
+    
+    def song_params
+      params.require(:song).permit(:name, :artist_id, :artist_name, :movie_url)
+    end
 
 end

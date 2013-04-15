@@ -1,8 +1,6 @@
 require 'uri'
 
 class Song < ActiveRecord::Base
-  attr_accessible :artist_id, :last_sang_at, :name, :movie_url, :youtube_v, :lyrics_file, :has_movie?, :artist_name
-
   belongs_to :artist
   has_many :sing_logs
 

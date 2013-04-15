@@ -1,6 +1,4 @@
 class SingLog < ActiveRecord::Base
-  attr_accessible :song_id, :sang_at, :song_name, :artist_name
-
   belongs_to :song
 
   default_scope order('created_at DESC')
