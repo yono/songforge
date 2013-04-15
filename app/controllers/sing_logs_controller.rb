@@ -40,7 +40,7 @@ class SingLogsController < ApplicationController
   # POST /sing_logs
   # POST /sing_logs.json
   def create
-    @sing_log = SingLog.new(params[:sing_log])
+    @sing_log = SingLog.new(sing_log_params)
 
     respond_to do |format|
       if @sing_log.save
@@ -59,7 +59,7 @@ class SingLogsController < ApplicationController
     @sing_log = SingLog.find(params[:id])
 
     respond_to do |format|
-      if @sing_log.update_attributes(params[:sing_log])
+      if @sing_log.update_attributes(sing_log_params)
         format.html { redirect_to @sing_log, notice: 'Sing log was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,4 +80,10 @@ class SingLogsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+  
+    def sing_log_params
+      params.require(:sing_log).permit(:song_id, :sang_at, :song_name, :artist_name)
+    end
 end
