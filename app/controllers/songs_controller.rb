@@ -1,4 +1,6 @@
 class SongsController < ApplicationController
+  before_action :set_song, only: [:show, :edit, :update, :destroy]
+
   # GET /songs
   # GET /songs.json
   def index
@@ -26,8 +28,6 @@ class SongsController < ApplicationController
   # GET /songs/1
   # GET /songs/1.json
   def show
-    @song = Song.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @song }
@@ -38,7 +38,6 @@ class SongsController < ApplicationController
   # GET /songs/new.json
   def new
     @song = Song.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @song }
@@ -47,7 +46,6 @@ class SongsController < ApplicationController
 
   # GET /songs/1/edit
   def edit
-    @song = Song.find(params[:id])
   end
 
   # POST /songs
@@ -59,7 +57,6 @@ class SongsController < ApplicationController
       artist.save
       @song.artist_id = artist.id
     end
-
     respond_to do |format|
       if @song.save
         format.html { redirect_to @song, notice: 'Song was successfully created.' }
@@ -74,8 +71,6 @@ class SongsController < ApplicationController
   # PUT /songs/1
   # PUT /songs/1.json
   def update
-    @song = Song.find(params[:id])
-
     respond_to do |format|
       if @song.update_attributes(song_params)
         format.html { redirect_to @song, notice: 'Song was successfully updated.' }
@@ -90,9 +85,7 @@ class SongsController < ApplicationController
   # DELETE /songs/1
   # DELETE /songs/1.json
   def destroy
-    @song = Song.find(params[:id])
     @song.destroy
-
     respond_to do |format|
       format.html { redirect_to songs_url }
       format.json { head :no_content }
@@ -114,6 +107,10 @@ class SongsController < ApplicationController
   end
 
   private
+
+    def set_song
+      @song = Song.find(params[:id])
+    end
     
     def song_params
       params.require(:song).permit(:name, :artist_id, :artist_name, :movie_url)

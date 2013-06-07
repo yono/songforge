@@ -1,4 +1,6 @@
 class SingLogsController < ApplicationController
+  before_action :set_sing_log, only: [:show, :edit, :update, :destroy]
+
   # GET /sing_logs
   # GET /sing_logs.json
   def index
@@ -13,8 +15,6 @@ class SingLogsController < ApplicationController
   # GET /sing_logs/1
   # GET /sing_logs/1.json
   def show
-    @sing_log = SingLog.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @sing_log }
@@ -34,14 +34,11 @@ class SingLogsController < ApplicationController
 
   # GET /sing_logs/1/edit
   def edit
-    @sing_log = SingLog.find(params[:id])
   end
 
   # POST /sing_logs
   # POST /sing_logs.json
   def create
-    @sing_log = SingLog.new(sing_log_params)
-
     respond_to do |format|
       if @sing_log.save
         format.html { redirect_to @sing_log, notice: 'Sing log was successfully created.' }
@@ -56,8 +53,6 @@ class SingLogsController < ApplicationController
   # PUT /sing_logs/1
   # PUT /sing_logs/1.json
   def update
-    @sing_log = SingLog.find(params[:id])
-
     respond_to do |format|
       if @sing_log.update_attributes(sing_log_params)
         format.html { redirect_to @sing_log, notice: 'Sing log was successfully updated.' }
@@ -72,9 +67,7 @@ class SingLogsController < ApplicationController
   # DELETE /sing_logs/1
   # DELETE /sing_logs/1.json
   def destroy
-    @sing_log = SingLog.find(params[:id])
     @sing_log.destroy
-
     respond_to do |format|
       format.html { redirect_to sing_logs_url }
       format.json { head :no_content }
@@ -82,6 +75,10 @@ class SingLogsController < ApplicationController
   end
 
   private
+
+    def set_sing_log
+      @sing_log = SingLog.find(params[:id])
+    end
   
     def sing_log_params
       params.require(:sing_log).permit(:song_id, :sang_at, :song_name, :artist_name)
