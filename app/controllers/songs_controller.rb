@@ -38,11 +38,11 @@ class SongsController < ApplicationController
       artist.save
       @song.artist_id = artist.id
     end
-    respond_with @song.save
+    respond_with @song.save, :location => song_url(@song.id)
   end
 
   def update
-    respond_with @song.update_attributes(song_params)
+    respond_with @song.update_attributes(song_params), :location => song_url(@song.id)
   end
 
   def destroy
@@ -70,7 +70,7 @@ class SongsController < ApplicationController
     end
     
     def song_params
-      params.require(:song).permit(:name, :artist_id, :artist_name, :movie_url)
+      params.require(:song).permit(:name, :artist_id, :artist_name, :movie_url, :last_sang_at)
     end
 
 end

@@ -17,11 +17,12 @@ class ArtistsController < ApplicationController
   end
 
   def create
-    respond_with @artist = Artist.new(artist_params)
+    @artist = Artist.new(artist_params)
+    respond_with @artist.save, :location => artist_url(@artist.id)
   end
 
   def update
-    respond_to @artist.update_attributes(artist_params)
+    respond_with @artist.update_attributes(artist_params), :location => artist_url(@artist.id)
   end
 
   def destroy

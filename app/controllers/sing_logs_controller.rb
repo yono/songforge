@@ -13,11 +13,9 @@ class SingLogsController < ApplicationController
     respond_with @sing_log = SingLog.new
   end
 
-  def edit
-  end
-
   def create
-    respond_with @sing_log.save
+    @sing_log = SingLog.new(sing_log_params)
+    respond_with @sing_log.save, :location => sing_log_url(@sing_log.id)
   end
 
   def update

@@ -29,16 +29,6 @@ class SingLogsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, id: @sing_log
-    assert_response :success
-  end
-
-  test "should update sing_log" do
-    put :update, id: @sing_log, sing_log: { song_id: @sing_log.song_id }
-    assert_redirected_to sing_log_path(assigns(:sing_log))
-  end
-
   test "should destroy sing_log" do
     assert_difference('SingLog.count', -1) do
       delete :destroy, id: @sing_log
