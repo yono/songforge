@@ -2,22 +2,8 @@ class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
 
   def index
-    unsing = Song.includes(:artist).where(:last_sang_at => nil)
-    already = Song.includes(:artist).where('last_sang_at IS NOT NULL')
-
-    unless params[:q].blank?
-      query = "%" + params[:q] + "%"
-      song_cond = Song.arel_table[:name].matches(query)
-      artist_cond = Artist.arel_table[:name].matches(query)
-      search_cond = song_cond.or artist_cond
-      unsing = unsing.where(search_cond)
-      already = already.where(search_cond)
-    end
-
-    all_songs = unsing.to_a + already.to_a
-    @songs = Kaminari.paginate_array(all_songs).page(params[:page]).per(20)
-
-    respond_with @songs
+    all_songs = Search.search(params[:q])
+    respond_with @songs = Kaminari.paginate_array(all_songs).page(params[:page]).per(20)
   end
 
   def show
