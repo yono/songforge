@@ -6,7 +6,7 @@ class Song < ActiveRecord::Base
 
   validates_presence_of :name
 
-  default_scope order('last_sang_at DESC')
+  default_scope { order('last_sang_at DESC') }
 
   def singing!
     self.last_sang_at = DateTime.now
