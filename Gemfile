@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.0.beta1'
+gem 'rails', '4.0.0.rc1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -21,8 +21,8 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 4.0.0.beta'
-  gem 'coffee-rails', '~> 4.0.0.beta'
+  gem 'sass-rails',   '~> 4.0.0.rc1'
+  gem 'coffee-rails', '~> 4.0.0'
   gem 'less-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
