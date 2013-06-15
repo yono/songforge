@@ -6,8 +6,9 @@ gem 'rails', '4.0.0.rc1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'thin'
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'kaminari'
+gem 'less-rails'
 
 group :development, :test do
   gem 'sqlite3'
@@ -23,7 +24,7 @@ end
 group :assets do
   gem 'sass-rails',   '~> 4.0.0.rc1'
   gem 'coffee-rails', '~> 4.0.0'
-  gem 'less-rails'
+  gem 'less'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
