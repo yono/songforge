@@ -7,10 +7,12 @@ gem 'rails', '4.0.0.rc1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'thin'
+#gem 'thin'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'kaminari'
 gem 'less-rails'
+gem 'pg'
+gem 'unicorn'
 
 group :development, :test do
   gem 'sqlite3'
@@ -18,7 +20,6 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
 end
 
 # Gems used only for assets and not required
