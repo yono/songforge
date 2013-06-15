@@ -13,12 +13,13 @@ gem 'kaminari'
 gem 'less-rails'
 gem 'pg'
 
+group :development do
+  gem 'foreman'
+end
+
 group :development, :test do
   gem 'sqlite3'
   gem 'pry-rails'
-end
-
-group :production do
 end
 
 # Gems used only for assets and not required
