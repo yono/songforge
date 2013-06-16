@@ -6,9 +6,9 @@ SongForge organize songs for karaoke.
 
 ## Dependency
 
-* Ruby 1.9.3
+* Ruby 2.0.0.rc2
 * bundler
-* SQLite3
+* PostgreSQL
 
 ## Getting Started
 
@@ -22,7 +22,7 @@ $ cd songforge
 install gems by bundler
 
 ```bash
-$ bundle install --without production --path vendor/bundle
+$ bundle install --path vendor/bundle
 ```
 
 migrate
@@ -34,5 +34,10 @@ $ bundle exec rake db:migrate
 launch server
 
 ```bash
+$ bundle exec foreman start
+```
+or
+
+```
 $ bundle exec rails s
 ```
