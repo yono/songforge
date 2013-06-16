@@ -1,5 +1,9 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path('../../config/environment', __FILE__)
+
+require 'simplecov' # should require before #require 'rails/test_help'
+SimpleCov.start "rails"
+
 require 'rails/test_help'
 
 class ActiveSupport::TestCase

@@ -19,3 +19,4 @@
 .ruby-version
 
 /public/assets
+/coverage
