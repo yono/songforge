@@ -3,6 +3,7 @@
 SongForge organize songs for karaoke.
 
 [![Code Climate](https://codeclimate.com/github/yono/songforge.png)](https://codeclimate.com/github/yono/songforge)
+[![gemnasium](https://gemnasium.com/yono/songforge.png)](https://gemnasium.com/yono/songforge)
 
 ## Dependency
 
