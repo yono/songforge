@@ -2,13 +2,10 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
-gem 'rails', '4.0.0'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'rails', '4.0.2'
 
 gem 'thin'
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'twitter-bootstrap-rails'
 gem 'kaminari'
 gem 'less-rails'
 gem 'pg'
@@ -18,12 +15,11 @@ group :development do
 end
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'pry-rails'
 end
 
 group :production do
-  gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :test do
@@ -44,21 +40,3 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
-gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
-gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
