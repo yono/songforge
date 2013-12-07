@@ -12,10 +12,13 @@ gem 'pg'
 
 group :development do
   gem 'foreman'
+  gem 'hirb'
+  gem 'hirb-unicode'
 end
 
 group :development, :test do
   gem 'pry-rails'
+  gem 'marco-polo'
 end
 
 group :production do
