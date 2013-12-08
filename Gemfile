@@ -9,6 +9,7 @@ gem 'twitter-bootstrap-rails'
 gem 'kaminari'
 gem 'less-rails'
 gem 'pg'
+gem 'spring'
 
 group :development do
   gem 'foreman'
