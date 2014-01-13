@@ -7,8 +7,8 @@ SongForge organize songs for karaoke.
 
 ## Dependency
 
-* Ruby 2.0.0.rc2
-* bundler
+* Ruby 2.1.0
+* bundler 1.3.5
 * PostgreSQL
 
 ## Getting Started
