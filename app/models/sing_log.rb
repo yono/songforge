@@ -4,14 +4,14 @@ class SingLog < ActiveRecord::Base
   default_scope { order('created_at DESC') }
 
   def sang_at
-    self.created_at.strftime("%Y-%m-%d %H:%M")
+    created_at.strftime("%Y-%m-%d %H:%M")
   end
 
   def exist_song?
-    !self.song.nil?
+    song.present?
   end
 
   def exist_artist?
-    !self.song.nil? and !self.song.artist.nil?
+    exist_song? and song.artist.present?
   end
 end

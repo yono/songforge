@@ -10,6 +10,7 @@ gem 'kaminari'
 gem 'less-rails'
 gem 'pg'
 gem 'spring'
+gem 'active_decorator'
 
 group :development do
   gem 'foreman'
