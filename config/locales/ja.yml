@@ -27,9 +27,16 @@ ja:
   artists:
     index:
       title: '歌手一覧'
+    show:
+      title: '歌手詳細'
+    new:
+      title: '歌手追加'
+    edit:
+      title: '歌手編集'
   activerecord:
     models:
       song: '曲'
+      artist: '歌手'
     attributes:
       song:
         name: '曲名'
@@ -37,3 +44,5 @@ ja:
         movie_url: '動画URL'
         lyrics_file: '歌詞画像'
         last_sang_at: '最後に歌った日'
+      artist:
+        name: '歌手名'
