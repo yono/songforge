@@ -1,6 +1,6 @@
-<h1>歌手情報編集</h1>
+<h1><%= t('.title') -%></h1>
 
 <%= render 'form' %>
 
-<%= link_to '歌手詳細へ', @artist %> |
-<%= link_to '歌手一覧へ', artists_path %>
+<%= link_to t('artists.show.title'), @artist %> |
+<%= link_to t('artists.index.title'), artists_path %>

@@ -1,11 +1,11 @@
-<h1>曲履歴一覧</h1>
+<h1><%= t('.title') -%></h1>
 
 <table class="<%= table_css_classes -%>">
   <thead>
   <tr>
-    <th>曲名</th>
-    <th>歌手名</th>
-    <th>日時</th>
+    <th><%= SingLog.human_attribute_name('song_name') -%></th>
+    <th><%= SingLog.human_attribute_name('artist_name') -%></th>
+    <th><%= SingLog.human_attribute_name('sang_at') -%></th>
   </tr>
   </thead>
 

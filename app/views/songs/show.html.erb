@@ -5,16 +5,16 @@
 <h1><%= @song.name %></h1>
 
 <p>
-  <b>歌手:</b>
+  <b><%= Song.human_attribute_name('artist_id') -%>:</b>
   <% if @song.artist.nil? -%>
-    <b>未設定</b>
+    <b><%= t('.unsetted_artist') -%></b>
   <% else -%>
     <%= link_to @song.artist.name, @song.artist %>
   <% end -%>
 </p>
 
 <p>
-  <b>最後に歌った日:</b>
+  <b><%= Song.human_attribute_name('last_sang_at') -%>:</b>
   <%= @song.last_sang_at %>
 </p>
 
@@ -32,5 +32,5 @@
   <% end -%>
 </div>
 
-<%= link_to '曲情報編集へ', edit_song_path(@song) %> |
-<%= link_to '曲一覧へ', songs_path %>
+<%= link_to t('songs.edit.title'), edit_song_path(@song) %> |
+<%= link_to t('songs.index.title'), songs_path %>
