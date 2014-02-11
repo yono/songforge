@@ -46,3 +46,8 @@ ja:
         last_sang_at: '最後に歌った日'
       artist:
         name: '歌手名'
+      sing_log:
+        song_id: '歌手名'
+        song_name: '歌手名'
+        artist_name: '曲名'
+        sang_at: '日時'
