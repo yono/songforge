@@ -1,0 +1,30 @@
+ja:
+  helpers:
+    submit:
+      create: '追加'
+      update: '更新'
+      submit: '保存'
+    placeholder:
+      song:
+        artist_name: '歌手を新規追加する場合'
+  songs:
+    index:
+      title: '曲一覧'
+      new: '曲追加'
+    show:
+      title: '曲詳細'
+      unsetted_artist: '未設定'
+    new:
+      title: '曲追加'
+    edit:
+      title: '曲編集'
+  activerecord:
+    models:
+      song: '曲'
+    attributes:
+      song:
+        name: '曲名'
+        artist_id: '歌手'
+        movie_url: '動画URL'
+        lyrics_file: '歌詞画像'
+        last_sang_at: '最後に歌った日'

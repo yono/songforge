@@ -1,14 +1,14 @@
-<h1>曲一覧</h1>
+<h1><%= t('.title') -%></h1>
 
 <p>
-<%= new_button '曲追加', new_song_path -%>
+<%= new_button t('songs.new.title'), new_song_path -%>
 </p>
 
 <table class="<%= table_css_classes -%>">
   <thead>
   <tr>
     <th></th>
-    <th>曲名</th>
+    <th><%= Song.human_attribute_name('name') -%></th>
     <th></th>
     <th></th>
   </tr>
