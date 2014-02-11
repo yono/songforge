@@ -46,12 +46,12 @@
           <a class="brand" href="/">SongForge</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "曲履歴一覧", "/sing_logs"  %></li>
-              <li><%= link_to "歌手一覧", "/artists"  %></li>
+              <li><%= link_to t('sing_logs.index.title'), "/sing_logs"  %></li>
+              <li><%= link_to t('artists.index.title'), "/artists"  %></li>
             </ul>
             <%= form_tag root_path, :class => 'form-search', :method => 'GET' do %>
               <%= text_field_tag :q, params[:q], :class => 'input-medium search-query' %>
-              <%= submit_tag "検索", :class => 'btn btn-mini' %>
+              <%= submit_tag t('.submit'), :class => 'btn btn-mini' %>
             <% end %>
           </div><!--/.nav-collapse -->
         </div>
