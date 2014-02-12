@@ -6,11 +6,7 @@
 
 <p>
   <b><%= Song.human_attribute_name('artist_id') -%>:</b>
-  <% if @song.artist.nil? -%>
-    <b><%= t('.unsetted_artist') -%></b>
-  <% else -%>
-    <%= link_to @song.artist.name, @song.artist %>
-  <% end -%>
+  <%= @song.artist_link -%>
 </p>
 
 <p>
