@@ -18,6 +18,9 @@ ja:
     show:
       title: '曲詳細'
       unsetted_artist: '未設定'
+      lyric: '歌詞'
+      lyric_link: '歌詞検索'
+      lyric_link_name: 'Google で「%{name} 歌詞」で検索'
     new:
       title: '曲追加'
     edit:
