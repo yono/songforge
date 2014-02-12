@@ -14,6 +14,7 @@ ja:
     index:
       title: '曲一覧'
       new: '曲追加'
+      num_of_songs: "曲数: %{num}"
     show:
       title: '曲詳細'
       unsetted_artist: '未設定'
