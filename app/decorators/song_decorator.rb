@@ -8,11 +8,19 @@ module SongDecorator
     end
   end
 
-  def artist_link
-    if artist.nil?
-      link_to name, self
-    else
+  def song_link
+    if artist.present?
       link_to "#{name} [#{artist.name}]", self
+    else
+      link_to name, self
+    end
+  end
+
+  def artist_link
+    if artist.present?
+      link_to artist.name, artist
+    else
+      t('.unsetted_artist')
     end
   end
 end
