@@ -18,7 +18,7 @@
   <% @songs.each do |song| -%>
   <tr>
     <td><%= song.star_link -%></td>
-    <td><%= song.artist_link -%></td>
+    <td><%= song.song_link -%></td>
     <td><%= edit_icon_link edit_song_path(song) -%></td>
     <td><%= delete_icon_link song -%></td>
   </tr>
