@@ -4,7 +4,7 @@ ruby '2.1.0'
 
 gem 'rails', '4.0.2'
 
-gem 'thin'
+gem 'passenger'
 gem 'twitter-bootstrap-rails'
 gem 'kaminari'
 gem 'less-rails'
