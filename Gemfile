@@ -16,6 +16,7 @@ group :development do
   gem 'foreman'
   gem 'hirb'
   gem 'hirb-unicode'
+  gem 'rack-mini-profiler'
 end
 
 group :development, :test do
