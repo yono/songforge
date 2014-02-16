@@ -16,7 +16,5 @@
 
 /vendor/bundle
 
-.ruby-version
-
 /public/assets
 /coverage
