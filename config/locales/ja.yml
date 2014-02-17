@@ -37,6 +37,12 @@ ja:
       title: '歌手追加'
     edit:
       title: '歌手編集'
+  views:
+    pagination:
+      first: '«'
+      last: '»'
+      next: '›'
+      previous: '‹'
   activerecord:
     models:
       song: '曲'
