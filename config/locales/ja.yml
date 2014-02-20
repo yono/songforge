@@ -44,6 +44,15 @@ ja:
       next: '›'
       previous: '‹'
   activerecord:
+    errors:
+      template:
+        header:
+          other: '%{model}に%{count}個のエラーが発生しました'
+      models:
+        song:
+          attributes:
+            name:
+              taken: 'が重複しています'
     models:
       song: '曲'
       artist: '歌手'
