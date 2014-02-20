@@ -1,7 +1,7 @@
 <%= form_for(@song) do |f| %>
   <% if @song.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
+      <h2><%=t "activerecord.errors.template.header.other", :model => Song.model_name.human, :count => @song.errors.count %>
 
       <ul>
       <% @song.errors.full_messages.each do |msg| %>

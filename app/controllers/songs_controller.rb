@@ -24,7 +24,8 @@ class SongsController < ApplicationController
       artist.save
       @song.artist_id = artist.id
     end
-    respond_with @song.save, :location => song_url(@song.id)
+    @song.save
+    respond_with @song
   end
 
   def update
