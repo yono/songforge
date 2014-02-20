@@ -20,7 +20,7 @@ module SongDecorator
     if artist.present?
       link_to artist.name, artist
     else
-      t('.unsetted_artist')
+      t('songs.show.unsetted_artist')
     end
   end
 
