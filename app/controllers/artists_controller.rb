@@ -18,7 +18,8 @@ class ArtistsController < ApplicationController
 
   def create
     @artist = Artist.new(artist_params)
-    respond_with @artist.save, :location => artist_url(@artist.id)
+    @artist.save
+    respond_with @artist
   end
 
   def update
