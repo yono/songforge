@@ -53,6 +53,10 @@ ja:
           attributes:
             name:
               taken: 'が重複しています'
+        artist:
+          attributes:
+            name:
+              taken: 'が重複しています'
     models:
       song: '曲'
       artist: '歌手'
