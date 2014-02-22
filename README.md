@@ -39,6 +39,6 @@ $ bundle exec foreman start
 ```
 or
 
-```
+```bash
 $ bundle exec rails s
 ```
