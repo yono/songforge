@@ -2,7 +2,7 @@ class Search
 
   def self.search(query)
     unsing = Song.includes(:artist).where(:last_sang_at => nil)
-    already = Song.includes(:artist).where.not(:last_sang_at => nil)
+    already = Song.includes(:artist).where.not(:last_sang_at => nil).reorder('last_sang_at ASC')
 
     unless query.blank?
       unsing = unsing.where(search_with_word(query))
