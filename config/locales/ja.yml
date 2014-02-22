@@ -48,15 +48,8 @@ ja:
       template:
         header:
           other: '%{model}に%{count}個のエラーが発生しました'
-      models:
-        song:
-          attributes:
-            name:
-              taken: 'が重複しています'
-        artist:
-          attributes:
-            name:
-              taken: 'が重複しています'
+      messages:
+        taken: 'は既に存在します'
     models:
       song: '曲'
       artist: '歌手'
