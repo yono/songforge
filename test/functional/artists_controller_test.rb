@@ -3,6 +3,7 @@ require 'test_helper'
 class ArtistsControllerTest < ActionController::TestCase
   setup do
     @artist = artists(:abingdon)
+    @artist.name = 'Another Artist'
   end
 
   test "should get index" do
