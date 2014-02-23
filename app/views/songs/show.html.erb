@@ -2,7 +2,10 @@
   <%= @song.name %>
 <% end -%>
 
-<h1><%= @song.name %></h1>
+<p>
+  <b><%= Song.human_attribute_name('name') -%>:</b>
+  <%= @song.name -%>
+</p>
 
 <p>
   <b><%= Song.human_attribute_name('artist_id') -%>:</b>
