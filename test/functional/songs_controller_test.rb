@@ -3,6 +3,7 @@ require 'test_helper'
 class SongsControllerTest < ActionController::TestCase
   setup do
     @song = songs(:strength)
+    @song.name = 'Another Name'
   end
 
   test "should get index" do
