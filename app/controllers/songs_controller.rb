@@ -2,8 +2,9 @@ class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
 
   def index
+    song_num = 100
     @all_songs = Search.search(params[:q])
-    respond_with @songs = Kaminari.paginate_array(@all_songs).page(params[:page]).per(20)
+    respond_with @songs = Kaminari.paginate_array(@all_songs).page(params[:page]).per(song_num)
   end
 
   def show
