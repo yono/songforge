@@ -1,7 +1,8 @@
 module ApplicationHelper
 
-  def new_button(button_label, path)
-    button_to button_label, path, class: 'btn', method: :get
+  def new_button(button_label, path, options={})
+    options.merge!({type: 'button', class: 'btn', method: 'get', value: button_label, onclick: "location.href='#{path.to_s}'".html_safe})
+    tag 'input', options
   end
 
   def edit_icon_link(path)
