@@ -12,7 +12,12 @@ class SongsController < ApplicationController
   end
 
   def new
-    respond_with @song = Song.new
+    @song = Song.new
+    if params[:artist_id].present?
+      artist = Artist.find(params[:artist_id])
+      @song.artist = artist if artist.present?
+    end
+    respond_with @song
   end
 
   def edit
