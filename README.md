@@ -32,6 +32,12 @@ migrate
 $ bundle exec rake db:migrate
 ```
 
+prepare `.env` file.
+
+```bash
+$ echo 'SECRET_TOKEN=random_string_as_secret_token' > .env`
+```
+
 launch server
 
 ```bash
