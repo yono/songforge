@@ -31,6 +31,7 @@ end
 
 group :test do
   gem 'simplecov', :require => false
+  gem 'coveralls', require: false
 end
 
 # Gems used only for assets and not required
