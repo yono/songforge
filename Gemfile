@@ -23,6 +23,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'pry-rails'
   gem 'marco-polo'
+  gem 'rspec-rails'
 end
 
 group :production do
