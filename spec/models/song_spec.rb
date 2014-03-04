@@ -1,4 +1,5 @@
 require "spec_helper"
+require 'tempfile'
 
 describe Song do
   describe 'validation' do
@@ -74,11 +75,33 @@ describe Song do
   end
 
   describe '.lyrics_file=' do
-    pending
+    it 'store content_type' do
+      song1 = Song.create! :name => 'Automatic'
+      temp = Tempfile::new("test.jpg", "#{Rails.root}/spec/images")
+      temp.stub(:content_type).and_return('image/jpeg')
+      song1.lyrics_file = temp
+      song1.save
+      song1.content_type.should == 'image/jpeg'
+    end
   end
 
   describe '.has_lyrics_file?' do
-    pending
+    context 'when has no lyrics file' do
+      it 'return false' do
+        song1 = Song.create! :name => 'Automatic'
+        song1.has_lyrics_file?.should be_false
+      end
+    end
+
+    context 'when has lyrics file' do
+      it 'return true' do
+        song1 = Song.create! :name => 'Automatic'
+        temp = Tempfile::new("test.jpg", "#{Rails.root}/spec/images")
+        temp.stub(:content_type).and_return('image/jpeg')
+        song1.lyrics_file = temp
+        song1.has_lyrics_file?.should be_false
+      end
+    end
   end
 
   describe '.artist_name' do
