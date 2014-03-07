@@ -24,6 +24,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'marco-polo'
   gem 'rspec-rails'
+  gem 'fuubar'
 end
 
 group :production do
