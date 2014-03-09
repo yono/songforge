@@ -1,2 +1,3 @@
 language: ruby
 rvm: 2.1.1
+env: SECRET_TOKEN=random_string_as_secret_token
