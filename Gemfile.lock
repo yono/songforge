@@ -44,7 +44,7 @@ GEM
       simplecov (>= 0.7)
       term-ansicolor
       thor
-    daemon_controller (1.1.8)
+    daemon_controller (1.2.0)
     diff-lcs (1.2.5)
     docile (1.1.2)
     dotenv (0.10.0)
@@ -85,8 +85,8 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.8.4)
-    passenger (4.0.37)
-      daemon_controller (>= 1.1.0)
+    passenger (4.0.38)
+      daemon_controller (>= 1.2.0)
       rack
       rake (>= 0.8.1)
     pg (0.17.1)
