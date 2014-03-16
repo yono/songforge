@@ -3,7 +3,7 @@ require "spec_helper"
 describe SingLog do
   describe '.sang_at' do
     it 'is formated' do
-      song1 = Song.new :name => 'Automatic'
+      song1 = Song.new :name => 'Automatic99'
       song1.singing!
       expect(song1.sing_logs.first.sang_at).to eq (song1.created_at.strftime("%Y-%m-%d %H:%M"))
     end
@@ -12,7 +12,7 @@ describe SingLog do
   describe '.exist_song?' do
     context 'when exist song' do
       it 'return true' do
-        song1 = Song.new :name => 'Automatic'
+        song1 = Song.new :name => 'Automatic9999'
         song1.singing!
         expect(song1.sing_logs.first.exist_song?).to be true
       end
@@ -20,7 +20,7 @@ describe SingLog do
 
     context 'when not exist song' do
       it 'return false' do
-        song1 = Song.new :name => 'Automatic'
+        song1 = Song.new :name => 'Automatic999'
         song1.singing!
         sing_log = song1.sing_logs.first
         song1.destroy!

@@ -4,9 +4,9 @@ describe SongsController do
 
   describe 'GET index' do
     it 'assigns @songs' do
-      song = Song.create! :name => 'Automatic'
+      song = Song.create! :name => 'FAKE'
       get :index
-      expect(assigns(:songs)).to eq([song])
+      expect(assigns(:songs)).to include song
     end
 
     it 'renders the index template' do
@@ -16,7 +16,11 @@ describe SongsController do
   end
 
   describe 'GET show' do
-    pending
+    it 'assigns song to @song' do
+      song = Song.create! :name => '夜空ノムコウ'
+      get :show, id: song
+      expect(assigns(:song)).to eq(song)
+    end
   end
 
   describe 'GET new' do

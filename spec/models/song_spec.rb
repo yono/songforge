@@ -4,7 +4,7 @@ require 'tempfile'
 describe Song do
   describe 'validation' do
     it 'Song has name each artist' do
-      artist = Artist.create! :name => 'Hikaru Utada'
+      artist = Artist.create! :name => 'Hikaru Utada1'
       song1 = Song.create! :name => 'Automatic', :artist_id => artist.id
       song2 = Song.new :name => 'Automatic', :artist_id => artist.id
       expect(song2.invalid?).to be true
@@ -13,7 +13,7 @@ describe Song do
 
   describe '.singing!' do
     it 'count up SingLog' do
-      song1 = Song.new :name => 'Automatic'
+      song1 = Song.new :name => 'Automatic1'
       expect{
         song1.singing! 
       }.to change(SingLog, :count).by(1)
@@ -23,14 +23,14 @@ describe Song do
   describe '.sang?' do
     context 'when not sang' do
       it 'return false' do
-        song1 = Song.new :name => 'Automatic'
+        song1 = Song.new :name => 'Automatic2'
         expect(song1.sang?).to be false
       end
     end
 
     context 'when already sang' do
       it 'return true' do
-        song1 = Song.create! :name => 'Automatic'
+        song1 = Song.new :name => 'Automatic3'
         song1.singing!
         expect(song1.sang?).to be true
       end

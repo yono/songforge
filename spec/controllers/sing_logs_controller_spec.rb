@@ -5,7 +5,7 @@ describe SingLogsController do
     it "assigns @sing_logs" do
       sing_log = SingLog.create!
       get :index
-      expect(assigns(:sing_logs)).to eq([sing_log])
+      expect(assigns(:sing_logs)).to include sing_log
     end
 
     it "renders the index template" do
