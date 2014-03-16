@@ -33,7 +33,7 @@ describe SingLog do
     context 'when exist artist' do
       it 'return true' do
         artist = Artist.create! :name => 'Hikaru Utada'
-        song1 = Song.create! :name => 'Automatic', :artist_id => artist.id
+        song1 = Song.new :name => 'Automatic', :artist_id => artist.id
         song1.singing!
         expect(song1.sing_logs.first.exist_artist?).to be true
       end
@@ -42,7 +42,7 @@ describe SingLog do
     context 'when not exist artist' do
       it 'return false' do
         artist = Artist.create! :name => 'Hikaru Utada'
-        song1 = Song.create! :name => 'Automatic', :artist_id => artist.id
+        song1 = Song.new :name => 'Automatic', :artist_id => artist.id
         song1.singing!
         artist.destroy!
         expect(song1.sing_logs.first.exist_artist?).to be false
