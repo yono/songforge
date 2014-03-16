@@ -43,15 +43,25 @@ describe SongsController do
 
   describe 'POST create' do
     context 'with valid attributes' do
-      it 'creates a new song' do
-        expect {
+      context 'without artist_name param' do
+        it 'creates a new song' do
+          expect {
+            post :create, song: attributes_for(:song)
+          }.to change(Song, :count).by(1)
+        end
+
+        it 'redirects to songs#show' do
           post :create, song: attributes_for(:song)
-        }.to change(Song, :count).by(1)
+          expect(response).to redirect_to song_url(assigns[:song])
+        end
       end
 
-      it 'redirects to songs#show' do
-        post :create, song: attributes_for(:song)
-        expect(response).to redirect_to song_url(assigns[:song])
+      context 'with artist_name param' do
+        it 'creates a new artist' do
+          expect {
+            post :create, song: attributes_for(:song_with_artist)
+          }.to change(Artist, :count).by(1)
+        end
       end
     end
   end

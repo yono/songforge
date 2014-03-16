@@ -25,11 +25,11 @@ class SongsController < ApplicationController
 
   def create
     @song = Song.new(song_params)
-    if params.has_key? :artist_name
-      artist = Artist.new(song_params)
-      artist.save
-      @song.artist_id = artist.id
-    end
+    #if params.has_key? :artist_name
+    #  artist = Artist.new(song_params)
+    #  artist.save
+    #  @song.artist_id = artist.id
+    #end
     @song.save
     respond_with @song
   end
