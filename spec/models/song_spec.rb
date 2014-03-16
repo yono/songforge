@@ -7,7 +7,7 @@ describe Song do
       artist = Artist.create! :name => 'Hikaru Utada'
       song1 = Song.create! :name => 'Automatic', :artist_id => artist.id
       song2 = Song.new :name => 'Automatic', :artist_id => artist.id
-      song2.invalid?.should be_true
+      expect(song2.invalid?).to be true
     end
   end
 
@@ -16,8 +16,9 @@ describe Song do
       artist = Artist.create! :name => 'Hikaru Utada'
       song1 = Song.create! :name => 'Automatic', :artist_id => artist.id
       count = SingLog.count
-      song1.singing! 
-      SingLog.count.should == count + 1
+      expect{
+        song1.singing! 
+      }.to change(SingLog, :count).by(1)
     end
   end
 
@@ -26,7 +27,7 @@ describe Song do
       it 'return false' do
         artist = Artist.create! :name => 'Hikaru Utada'
         song1 = Song.create! :name => 'Automatic', :artist_id => artist.id
-        song1.sang?.should be_false
+        expect(song1.sang?).to be false
       end
     end
 
@@ -35,7 +36,7 @@ describe Song do
         artist = Artist.create! :name => 'Hikaru Utada'
         song1 = Song.create! :name => 'Automatic', :artist_id => artist.id
         song1.singing!
-        song1.sang?.should be_true
+        expect(song1.sang?).to be true
       end
     end
   end
@@ -44,15 +45,15 @@ describe Song do
     context 'has no movie_url' do
       it 'return nil' do
         song1 = Song.create! :name => 'Automatic'
-        song1.youtube_v.should be_nil
+        expect(song1.youtube_v).to be nil
       end
     end
 
     context 'has movie_url' do
       it 'return youtube_v parameter' do
         song1 = Song.create! :name => 'Automatic',
-                             :movie_url => 'http://www.youtube.com/watch?v=aaaaaaaaa'
-        song1.youtube_v.should == 'aaaaaaaaa'
+                             :movie_url => 'http://www.youtube.com/watch?v=abcdefghi'
+        expect(song1.youtube_v).to eq('abcdefghi')
       end
     end
   end
@@ -61,7 +62,7 @@ describe Song do
     context 'when has no movie_uel' do
       it 'return false' do
         song1 = Song.create! :name => 'Automatic'
-        song1.has_movie?.should be_false
+        expect(song1.has_movie?).to be false
       end
     end
 
@@ -69,45 +70,47 @@ describe Song do
       it 'return true' do
         song1 = Song.create! :name => 'Automatic',
                              :movie_url => 'http://www.youtube.com/watch?v=aaaaaaaaa'
-        song1.has_movie?.should be_true
+        expect(song1.has_movie?).to be true
       end
     end
   end
 
   describe '.lyrics_file=' do
     it 'store content_type' do
-      song1 = Song.create! :name => 'Automatic'
-      temp = Tempfile::new("test.jpg", "#{Rails.root}/spec/images")
-      temp.stub(:content_type).and_return('image/jpeg')
-      song1.lyrics_file = temp
-      song1.save
-      song1.content_type.should == 'image/jpeg'
+      song1 = Song.new :name => 'Automatic'
+      tempfile = Tempfile::new("test.jpg", "#{Rails.root}/spec/images")
+      tempfile.stub(:content_type).and_return('image/jpeg')
+
+      song1.lyrics_file = tempfile
+      expect(song1.content_type).to eq('image/jpeg')
     end
   end
 
   describe '.has_lyrics_file?' do
     context 'when has no lyrics file' do
       it 'return false' do
-        song1 = Song.create! :name => 'Automatic'
-        song1.has_lyrics_file?.should be_false
+        song1 = Song.new :name => 'Automatic'
+        expect(song1.has_lyrics_file?).to be false
       end
     end
 
     context 'when has lyrics file' do
       it 'return true' do
-        song1 = Song.create! :name => 'Automatic'
-        temp = Tempfile::new("test.jpg", "#{Rails.root}/spec/images")
-        temp.stub(:content_type).and_return('image/jpeg')
-        song1.lyrics_file = temp
-        song1.has_lyrics_file?.should be_false
+        song1 = Song.new :name => 'Automatic'
+        tempfile = Tempfile::new("test.jpg", "#{Rails.root}/spec/images")
+        tempfile.stub(:content_type).and_return('image/jpeg')
+        tempfile.stub(:read).and_return('binary')
+
+        song1.lyrics_file = tempfile
+        expect(song1.has_lyrics_file?).to be true
       end
     end
   end
 
   describe '.artist_name' do
     it 'has no inplementation' do
-      song1 = Song.create! :name => 'Automatic'
-      song1.artist_name.should be_nil
+      song1 = Song.new :name => 'Automatic'
+      expect(song1.artist_name).to be nil
     end
   end
 
@@ -115,14 +118,15 @@ describe Song do
     context 'when args is present' do
       it 'create artist' do
         song = Song.create! :name => 'whiteout', :artist_name => 'Garnet Crow' 
-        Artist.where(name: 'Garnet Crow').present?.should be_true
+        expect(Artist.where(name: 'Garnet Crow').present?).to be true
       end
     end
     context 'args is blank' do
       it 'create no artist' do
         artist_count = Artist.count
-        song = Song.create! :name => 'whiteout', :artist_name => '' 
-        Artist.count.should == artist_count
+        expect {
+          song = Song.create! :name => 'whiteout', :artist_name => ''
+        }.to change(Artist, :count).by(0)
       end
     end
   end

@@ -5,7 +5,7 @@ describe SingLog do
     it 'is formated' do
       song1 = Song.new :name => 'Automatic'
       song1.singing!
-      song1.sing_logs.first.sang_at.should == song1.created_at.strftime("%Y-%m-%d %H:%M") 
+      expect(song1.sing_logs.first.sang_at).to eq (song1.created_at.strftime("%Y-%m-%d %H:%M"))
     end
   end
 
@@ -14,7 +14,7 @@ describe SingLog do
       it 'return true' do
         song1 = Song.new :name => 'Automatic'
         song1.singing!
-        song1.sing_logs.first.exist_song?.should be_true
+        expect(song1.sing_logs.first.exist_song?).to be true
       end
     end
 
@@ -24,7 +24,7 @@ describe SingLog do
         song1.singing!
         sing_log = song1.sing_logs.first
         song1.destroy!
-        sing_log.exist_song?.should be_false
+        expect(sing_log.exist_song?).to be false
       end
     end
   end
@@ -35,7 +35,7 @@ describe SingLog do
         artist = Artist.create! :name => 'Hikaru Utada'
         song1 = Song.create! :name => 'Automatic', :artist_id => artist.id
         song1.singing!
-        song1.sing_logs.first.exist_artist?.should be_true
+        expect(song1.sing_logs.first.exist_artist?).to be true
       end
     end
 
@@ -45,7 +45,7 @@ describe SingLog do
         song1 = Song.create! :name => 'Automatic', :artist_id => artist.id
         song1.singing!
         artist.destroy!
-        song1.sing_logs.first.exist_artist?.should be_false
+        expect(song1.sing_logs.first.exist_artist?).to be false
       end
     end
   end
