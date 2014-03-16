@@ -25,6 +25,8 @@ group :development, :test do
   gem 'marco-polo'
   gem 'rspec-rails'
   gem 'fuubar'
+  gem 'spring-commands-rspec'
+  gem 'guard-rspec'
 end
 
 group :production do
