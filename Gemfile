@@ -27,6 +27,7 @@ group :development, :test do
   gem 'fuubar'
   gem 'spring-commands-rspec'
   gem 'guard-rspec'
+  gem 'factory_girl_rails'
 end
 
 group :production do
