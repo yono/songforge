@@ -4,20 +4,20 @@ describe SongsController do
 
   describe 'GET index' do
     it 'assigns @songs' do
-      song = Song.create! :name => 'FAKE'
+      song = create(:song)
       get :index
       expect(assigns(:songs)).to include song
     end
 
-    it 'renders the index template' do
+    it 'renders the :index template' do
       get :index
-      expect(response).to render_template('index')
+      expect(response).to render_template :index
     end
   end
 
   describe 'GET show' do
     it 'assigns song to @song' do
-      song = Song.create! :name => '夜空ノムコウ'
+      song = create(:song)
       get :show, id: song
       expect(assigns(:song)).to eq(song)
     end
@@ -28,11 +28,32 @@ describe SongsController do
   end
 
   describe 'GET edit' do
-    pending
+    it 'assigns the requested song to @song' do
+      song = create(:song)
+      get :edit, id: song
+      expect(assigns(:song)).to eq(song)
+    end
+
+    it 'renders the :edit template' do
+      song = create(:song)
+      get :edit, id: song
+      expect(response).to render_template :edit
+    end
   end
 
   describe 'POST create' do
-    pending
+    context 'with valid attributes' do
+      it 'creates a new song' do
+        expect {
+          post :create, song: attributes_for(:song)
+        }.to change(Song, :count).by(1)
+      end
+
+      it 'redirects to songs#show' do
+        post :create, song: attributes_for(:song)
+        expect(response).to redirect_to song_url(assigns[:song])
+      end
+    end
   end
 
   describe 'PUT update' do
