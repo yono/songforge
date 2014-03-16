@@ -7,6 +7,10 @@ class Song < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :name, :scope => :artist_id
 
+  before_save :save_artist
+
+  attr_accessor :artist_name
+
   default_scope { order('last_sang_at DESC') }
 
   def singing!
@@ -50,15 +54,11 @@ class Song < ActiveRecord::Base
     return !self.lyrics_image.blank?
   end
 
-  def artist_name
-  end
-
-  def artist_name= (a)
-    unless a.blank?
-      artist = Artist.new
-      artist.name = a
+  def save_artist
+    if artist_name
+      artist = Artist.new name: artist_name
       artist.save!
-      self.artist_id = artist.id
+      artist_id = artist.id
     end
   end
 

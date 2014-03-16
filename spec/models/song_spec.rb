@@ -13,9 +13,7 @@ describe Song do
 
   describe '.singing!' do
     it 'count up SingLog' do
-      artist = Artist.create! :name => 'Hikaru Utada'
-      song1 = Song.create! :name => 'Automatic', :artist_id => artist.id
-      count = SingLog.count
+      song1 = Song.new :name => 'Automatic'
       expect{
         song1.singing! 
       }.to change(SingLog, :count).by(1)
@@ -25,16 +23,14 @@ describe Song do
   describe '.sang?' do
     context 'when not sang' do
       it 'return false' do
-        artist = Artist.create! :name => 'Hikaru Utada'
-        song1 = Song.create! :name => 'Automatic', :artist_id => artist.id
+        song1 = Song.new :name => 'Automatic'
         expect(song1.sang?).to be false
       end
     end
 
     context 'when already sang' do
       it 'return true' do
-        artist = Artist.create! :name => 'Hikaru Utada'
-        song1 = Song.create! :name => 'Automatic', :artist_id => artist.id
+        song1 = Song.create! :name => 'Automatic'
         song1.singing!
         expect(song1.sang?).to be true
       end
@@ -44,15 +40,15 @@ describe Song do
   describe '.youtube_v' do
     context 'has no movie_url' do
       it 'return nil' do
-        song1 = Song.create! :name => 'Automatic'
+        song1 = Song.new :name => 'Automatic'
         expect(song1.youtube_v).to be nil
       end
     end
 
     context 'has movie_url' do
       it 'return youtube_v parameter' do
-        song1 = Song.create! :name => 'Automatic',
-                             :movie_url => 'http://www.youtube.com/watch?v=abcdefghi'
+        song1 = Song.new :name => 'Automatic',
+                         :movie_url => 'http://www.youtube.com/watch?v=abcdefghi'
         expect(song1.youtube_v).to eq('abcdefghi')
       end
     end
@@ -61,15 +57,15 @@ describe Song do
   describe '.has_movie?' do
     context 'when has no movie_uel' do
       it 'return false' do
-        song1 = Song.create! :name => 'Automatic'
+        song1 = Song.new :name => 'Automatic'
         expect(song1.has_movie?).to be false
       end
     end
 
     context 'when has movie_url' do
       it 'return true' do
-        song1 = Song.create! :name => 'Automatic',
-                             :movie_url => 'http://www.youtube.com/watch?v=aaaaaaaaa'
+        song1 = Song.new :name => 'Automatic',
+                         :movie_url => 'http://www.youtube.com/watch?v=aaaaaaaaa'
         expect(song1.has_movie?).to be true
       end
     end
@@ -117,15 +113,20 @@ describe Song do
   describe '.artist_name=' do
     context 'when args is present' do
       it 'create artist' do
-        song = Song.create! :name => 'whiteout', :artist_name => 'Garnet Crow' 
+        song = Song.new :name => 'whiteout', :artist_name => 'Garnet Crow' 
+        expect(Artist.where(name: 'Garnet Crow').present?).to be false
+
+        # After save, persisted the artist.
+        song.save!
         expect(Artist.where(name: 'Garnet Crow').present?).to be true
       end
     end
+
     context 'args is blank' do
       it 'create no artist' do
         artist_count = Artist.count
         expect {
-          song = Song.create! :name => 'whiteout', :artist_name => ''
+          song = Song.new :name => 'whiteout', :artist_name => ''
         }.to change(Artist, :count).by(0)
       end
     end
