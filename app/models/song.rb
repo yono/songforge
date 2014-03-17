@@ -55,7 +55,7 @@ class Song < ActiveRecord::Base
   end
 
   def save_artist
-    if artist_name
+    if artist_name.present?
       artist = Artist.new name: artist_name
       artist.save!
       artist_id = artist.id
