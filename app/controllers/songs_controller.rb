@@ -25,17 +25,18 @@ class SongsController < ApplicationController
 
   def create
     @song = Song.new(song_params)
-    #if params.has_key? :artist_name
-    #  artist = Artist.new(song_params)
-    #  artist.save
-    #  @song.artist_id = artist.id
-    #end
     @song.save
     respond_with @song
   end
 
   def update
-    respond_with @song.update_attributes(song_params), :location => song_url(@song.id)
+    respond_to do |format|
+      if @song.update_attributes(song_params)
+        format.html { redirect_to @song }
+      else
+        format.html { render action: 'edit' }
+      end
+    end
   end
 
   def destroy

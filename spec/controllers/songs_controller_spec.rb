@@ -24,7 +24,25 @@ describe SongsController do
   end
 
   describe 'GET new' do
-    pending
+    context 'without artist_id' do
+      it 'assigns a new Song to @song' do
+        get :new
+        expect(assigns(:song)).to be_a_new(Song)
+      end
+
+      it 'renders the :new template' do
+        get :new
+        expect(response).to render_template :new
+      end
+    end
+
+    context 'with artist_id' do
+      it 'assigns a new Song with Artist to @song' do
+        artist = Artist.create! name: 'Artist'
+        get :new, artist_id: artist
+        expect(assigns(:song).artist_id).to eq(artist.id)
+      end
+    end
   end
 
   describe 'GET edit' do
@@ -64,22 +82,88 @@ describe SongsController do
         end
       end
     end
+
+    context 'with invalid attributes' do
+      it 'does not create a new song' do
+        expect {
+          post :create, song: attributes_for(:invalid_song)
+        }.to_not change(Song, :count)
+      end
+
+      it 're-renders the :new template' do
+        post :create, song: attributes_for(:invalid_song)
+        expect(response).to render_template :new
+      end
+    end
   end
 
-  describe 'PUT update' do
-    pending
+  describe 'PATCH update' do
+    context 'with valid attributes' do
+      it 'update the song' do
+        song = create(:song)
+        patch :update, id: song, song: attributes_for(:song, name: 'NewSong')
+        song.reload
+        expect(song.name).to eq("NewSong")
+      end
+
+      it 'redirects to songs#show' do
+        song = create(:song)
+        patch :update, id: song, song: attributes_for(:song)
+        expect(response).to redirect_to song
+      end
+    end
+
+    context 'with invalid attributes' do
+      it 'does not update the song' do
+        song = create(:song, name: 'ExistSong')
+        patch :update, id: song, song: attributes_for(:invalid_song)
+        song.reload
+        expect(song.name).to eq("ExistSong")
+      end
+
+      it 're-renders the :edit template' do
+        song = create(:song)
+        post :update, id: song, song: attributes_for(:invalid_song)
+        expect(response).to render_template :edit
+      end
+    end
   end
 
   describe 'DELETE destroy' do
-    pending
+    it 'deletes the song' do
+      song = create(:song)
+      expect {
+        delete :destroy, id: song
+      }.to change(Song, :count).by(-1)
+    end
+
+    it 'redirects to songs#index' do
+      song = create(:song)
+      delete :destroy, id: song
+      expect(response).to redirect_to songs_url
+    end
   end
 
   describe 'GET singing' do
-    pending
+    it 'creates a new sing_log' do
+      song = create(:song)
+      expect {
+        get :singing, id: song
+      }.to change(SingLog, :count).by(1)
+    end
+
+    it 'redirects to songs#index' do
+      song = create(:song)
+      get :singing, id: song
+      expect(response).to redirect_to songs_url
+    end
   end
 
   describe 'GET lyrics_image' do
-    pending
+    it 'returns image' do
+      song = create(:song, content_type: 'image/jpeg')
+      get :lyrics_image, id: song
+      expect(response.header['Content-Type']).to eq('image/jpeg')
+    end
   end
-
 end
