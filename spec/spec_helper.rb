@@ -52,4 +52,10 @@ RSpec.configure do |config|
   config.order = "random"
 
   config.include FactoryGirl::Syntax::Methods
+
+  # for active_decorator
+  require 'rspec/rails/example/decorator_example_group'
+  config.include RSpec::Rails::DecoratorExampleGroup, type: :decorator, example_group: {
+    file_path: config.escaped_path(%w[spec decorators])
+  }
 end
