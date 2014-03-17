@@ -23,7 +23,13 @@ class ArtistsController < ApplicationController
   end
 
   def update
-    respond_with @artist.update_attributes(artist_params), :location => artist_url(@artist.id)
+    respond_to do |format|
+      if @artist.update_attributes(artist_params)
+        format.html { redirect_to @artist }
+      else
+        format.html { render action: 'edit' }
+      end
+    end
   end
 
   def destroy
