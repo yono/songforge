@@ -14,6 +14,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'capybara/poltergeist'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -60,9 +61,15 @@ RSpec.configure do |config|
   }
 
   # for selenium-webdriver
+  Capybara.javascript_driver = :poltergeist
+
   config.use_transactional_fixtures = false
 
-  config.before(:suite) do
+  config.before(:each) do
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  config.before(:each, :js => true) do
     DatabaseCleaner.strategy = :truncation
   end
 
