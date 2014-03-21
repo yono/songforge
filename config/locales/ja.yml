@@ -47,7 +47,7 @@ ja:
     errors:
       template:
         header:
-          other: '%{model}に%{count}個のエラーが発生しました'
+          other: '%{count}個のエラーが発生しました'
       messages:
         taken: 'は既に存在します'
         blank: 'を入力してください'
