@@ -4,7 +4,7 @@ require 'tempfile'
 describe Song do
   describe 'validation' do
     it 'Song has name each artist' do
-      artist = Artist.create! name: 'Hikaru Utada1'
+      artist = create(:artist)
       song = create(:song, name: 'Automatic', artist_id: artist.id)
       duplicate_song = build(:song, name: 'Automatic', artist_id: artist.id)
       expect(duplicate_song.invalid?).to be true
@@ -103,8 +103,8 @@ describe Song do
 
   describe '.artist_name' do
     it 'has no inplementation' do
-      song1 = Song.new name: 'Automatic'
-      expect(song1.artist_name).to be nil
+      song = create(:song)
+      expect(song.artist_name).to be nil
     end
   end
 
