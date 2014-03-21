@@ -5,7 +5,7 @@ class Song < ActiveRecord::Base
   has_many :sing_logs
 
   validates_presence_of :name
-  validates_uniqueness_of :name, :scope => :artist_id
+  validates_uniqueness_of :name, scope: :artist_id
 
   before_save :save_artist
 
@@ -16,7 +16,7 @@ class Song < ActiveRecord::Base
   def singing!
     self.last_sang_at = DateTime.now
     save!
-    sing_log = SingLog.new(:song_id => id)
+    sing_log = SingLog.new(song_id: id)
     sing_log.song_name = self.name
     sing_log.artist_name = self.artist.name unless self.artist.nil?
     sing_log.save!

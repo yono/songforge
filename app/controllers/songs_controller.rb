@@ -54,7 +54,7 @@ class SongsController < ApplicationController
 
   def lyrics_image
     @song = Song.find(params[:id])
-    send_data(@song.lyrics_image, :type => @song.content_type)
+    send_data(@song.lyrics_image, type: @song.content_type)
   end
 
   private

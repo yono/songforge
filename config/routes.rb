@@ -1,5 +1,5 @@
 SongForge::Application.routes.draw do
-  resources :sing_logs, :only => [:index]
+  resources :sing_logs, only: :index
 
   resources :songs do
     member do
@@ -10,5 +10,5 @@ SongForge::Application.routes.draw do
 
   resources :artists
 
-  root :to => 'songs#index'
+  root 'songs#index'
 end
