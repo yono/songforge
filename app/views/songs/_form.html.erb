@@ -1,7 +1,7 @@
 <%= form_for(@song) do |f| %>
   <% if @song.errors.any? %>
     <div id="error_explanation">
-      <h2><%=t "activerecord.errors.template.header.other", model: Song.model_name.human, count: @song.errors.count %>
+      <h2><%=t "activerecord.errors.template.header.other", model: Song.model_name.human, count: @song.errors.count %></h2>
 
       <ul>
       <% @song.errors.full_messages.each do |msg| %>
