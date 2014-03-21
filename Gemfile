@@ -35,7 +35,7 @@ group :production do
 end
 
 group :test do
-  gem 'simplecov', :require => false
+  gem 'simplecov', require: false
   gem 'coveralls', require: false
   gem 'capybara'
   gem 'database_cleaner'
@@ -51,7 +51,7 @@ group :assets do
   gem 'less'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platforms => :ruby
+  gem 'therubyracer', platforms: :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
