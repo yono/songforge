@@ -23,13 +23,8 @@ class ArtistsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @artist.update_attributes(artist_params)
-        format.html { redirect_to @artist }
-      else
-        format.html { render action: 'edit' }
-      end
-    end
+    @artist.update_attributes(artist_params)
+    respond_with @artist, location: @artist
   end
 
   def destroy

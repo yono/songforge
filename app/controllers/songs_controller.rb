@@ -30,13 +30,8 @@ class SongsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @song.update_attributes(song_params)
-        format.html { redirect_to @song }
-      else
-        format.html { render action: 'edit' }
-      end
-    end
+    @song.update_attributes(song_params)
+    respond_with @song, location: @song, action: 'edit'
   end
 
   def destroy
@@ -47,9 +42,7 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
     @song.singing!
 
-    respond_to do |format|
-      format.html { redirect_to songs_url }
-    end
+    redirect_to songs_url
   end
 
   def lyrics_image
