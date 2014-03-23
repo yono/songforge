@@ -34,7 +34,7 @@ class Song < ActiveRecord::Base
     youtube_v = ""
     uri.query.split("&").each do |query|
       key, value = query.split("=")
-      youtube_v = value if key == "v" 
+      youtube_v = value if key == "v"
     end
     youtube_v
   end

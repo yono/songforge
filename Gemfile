@@ -28,6 +28,7 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'guard-rspec'
   gem 'factory_girl_rails'
+  gem 'code_hunter'
 end
 
 group :production do
