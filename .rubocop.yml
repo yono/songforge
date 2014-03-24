@@ -1,0 +1,14 @@
+AllCops:
+  Includes:
+    - Rakefile
+    - Gemfile
+    - config.ru
+  Excludes:
+    - bin/*
+    - lib/monkey_patches/*
+    - db/schema.rb
+    - vendor/bundle/*
+  RunRailsCops: true
+
+Documentation:
+  Enabled: false

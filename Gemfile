@@ -29,6 +29,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'factory_girl_rails'
   gem 'code_hunter'
+  gem 'rubocop', require: false
 end
 
 group :production do
