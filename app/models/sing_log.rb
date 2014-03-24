@@ -4,7 +4,7 @@ class SingLog < ActiveRecord::Base
   default_scope { order('created_at DESC') }
 
   def sang_at
-    created_at.strftime("%Y-%m-%d %H:%M")
+    created_at.strftime('%Y-%m-%d %H:%M')
   end
 
   def exist_song?
@@ -12,6 +12,6 @@ class SingLog < ActiveRecord::Base
   end
 
   def exist_artist?
-    exist_song? and song.artist.present?
+    exist_song? && song.artist.present?
   end
 end

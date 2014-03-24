@@ -63,9 +63,9 @@ describe SongsController do
     context 'with valid attributes' do
       context 'without artist_name param' do
         it 'creates a new song' do
-          expect {
+          expect do
             post :create, song: attributes_for(:song)
-          }.to change(Song, :count).by(1)
+          end.to change(Song, :count).by(1)
         end
 
         it 'redirects to songs#show' do
@@ -76,18 +76,18 @@ describe SongsController do
 
       context 'with artist_name param' do
         it 'creates a new artist' do
-          expect {
+          expect do
             post :create, song: attributes_for(:song_with_artist)
-          }.to change(Artist, :count).by(1)
+          end.to change(Artist, :count).by(1)
         end
       end
     end
 
     context 'with invalid attributes' do
       it 'does not create a new song' do
-        expect {
+        expect do
           post :create, song: attributes_for(:invalid_song)
-        }.to_not change(Song, :count)
+        end.to_not change(Song, :count)
       end
 
       it 're-renders the :new template' do
@@ -103,7 +103,7 @@ describe SongsController do
         song = create(:song)
         patch :update, id: song, song: attributes_for(:song, name: 'NewSong')
         song.reload
-        expect(song.name).to eq("NewSong")
+        expect(song.name).to eq('NewSong')
       end
 
       it 'redirects to songs#show' do
@@ -118,7 +118,7 @@ describe SongsController do
         song = create(:song, name: 'ExistSong')
         patch :update, id: song, song: attributes_for(:invalid_song)
         song.reload
-        expect(song.name).to eq("ExistSong")
+        expect(song.name).to eq('ExistSong')
       end
 
       it 're-renders the :edit template' do
@@ -132,9 +132,9 @@ describe SongsController do
   describe 'DELETE destroy' do
     it 'deletes the song' do
       song = create(:song)
-      expect {
+      expect do
         delete :destroy, id: song
-      }.to change(Song, :count).by(-1)
+      end.to change(Song, :count).by(-1)
     end
 
     it 'redirects to songs#index' do
@@ -147,9 +147,9 @@ describe SongsController do
   describe 'GET singing' do
     it 'creates a new sing_log' do
       song = create(:song)
-      expect {
+      expect do
         get :singing, id: song
-      }.to change(SingLog, :count).by(1)
+      end.to change(SingLog, :count).by(1)
     end
 
     it 'redirects to songs#index' do

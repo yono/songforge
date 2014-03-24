@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'spec_helper'
 
 describe SingLog do
 
@@ -6,7 +6,7 @@ describe SingLog do
     it 'returns formatted time' do
       song = build(:song)
       song.singing!
-      expect(song.sing_logs.first.sang_at).to eq song.created_at.strftime("%Y-%m-%d %H:%M")
+      expect(song.sing_logs.first.sang_at).to eq song.created_at.strftime('%Y-%m-%d %H:%M')
     end
   end
 

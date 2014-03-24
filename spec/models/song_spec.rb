@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'spec_helper'
 require 'tempfile'
 
 describe Song do
@@ -16,9 +16,9 @@ describe Song do
   end
 
   it '.singing!' do
-    expect{
-      song.singing! 
-    }.to change(SingLog, :count).by(1)
+    expect do
+      song.singing!
+    end.to change(SingLog, :count).by(1)
   end
 
   describe '.sang?' do
@@ -45,7 +45,7 @@ describe Song do
       it 'returns value' do
         song = create(:song)
         song.movie_url = 'http://www.youtube.com/watch?v=abcdefghi'
-        expect(song.youtube_v).to eq "abcdefghi"
+        expect(song.youtube_v).to eq 'abcdefghi'
       end
     end
   end
@@ -64,13 +64,13 @@ describe Song do
 
   describe '.lyrics_file=' do
     before do
-      tempfile = Tempfile::new("test.jpg", "#{Rails.root}/spec/images")
+      tempfile = Tempfile.new('test.jpg', "#{Rails.root}/spec/images")
       tempfile.stub(:content_type).and_return('image/jpeg')
       tempfile.stub(:read).and_return('binary')
       song.lyrics_file = tempfile
     end
 
-    its(:content_type) { "image/jpeg" }
+    its(:content_type) { 'image/jpeg' }
   end
 
   describe '.has_lyrics_file?' do
@@ -80,7 +80,7 @@ describe Song do
 
     context 'when has lyrics file' do
       before do
-        tempfile = Tempfile::new("test.jpg", "#{Rails.root}/spec/images")
+        tempfile = Tempfile.new('test.jpg', "#{Rails.root}/spec/images")
         tempfile.stub(:content_type).and_return('image/jpeg')
         tempfile.stub(:read).and_return('binary')
         song.lyrics_file = tempfile
@@ -105,7 +105,7 @@ describe Song do
 
         context 'after save' do
           before { song.save }
-          it "create artist" do
+          it 'create artist' do
             expect(Artist.where(name: 'Garnet Crow').present?).to be true
           end
         end
@@ -114,9 +114,7 @@ describe Song do
 
     context 'args is blank' do
       it 'create no artist' do
-        expect {
-          new_song = build(:song)
-        }.to change(Artist, :count).by(0)
+        expect { build(:song) }.to change(Artist, :count).by(0)
       end
     end
   end

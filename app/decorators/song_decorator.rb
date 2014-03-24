@@ -25,6 +25,7 @@ module SongDecorator
   end
 
   def lyric_link
-    link_to t('songs.show.lyric_link_name', name: name), "http://google.co.jp/search?q=#{name}　#{t('songs.show.lyric')}", target: '_blank'
+    link_to t('songs.show.lyric_link_name', name: name),
+      "http://google.co.jp/search?q=#{name}　#{t('songs.show.lyric')}", target: '_blank'
   end
 end

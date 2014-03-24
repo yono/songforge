@@ -58,9 +58,9 @@ describe ArtistsController do
   describe 'POST create' do
     context 'with valid attributes' do
       it 'creates a new artist' do
-        expect {
+        expect do
           post :create, artist: attributes_for(:artist)
-        }.to change(Artist, :count).by(1)
+        end.to change(Artist, :count).by(1)
       end
 
       it 'redirects to artists#show' do
@@ -71,9 +71,9 @@ describe ArtistsController do
 
     context 'with invalid attributes' do
       it 'does not create a new artist' do
-        expect {
+        expect do
           post :create, artist: attributes_for(:invalid_artist)
-        }.to_not change(Artist, :count)
+        end.to_not change(Artist, :count)
       end
 
       it 're-renders the :new template' do
@@ -89,7 +89,7 @@ describe ArtistsController do
         artist = create(:artist, name: 'ORIGINAL')
         patch :update, id: artist, artist: attributes_for(:artist, name: 'UPDATED')
         artist.reload
-        expect(artist.name).to eq("UPDATED")
+        expect(artist.name).to eq('UPDATED')
       end
 
       it 'redirects to artists#show' do
@@ -104,7 +104,7 @@ describe ArtistsController do
         artist = create(:artist, name: 'VALID')
         patch :update, id: artist, artist: attributes_for(:invalid_artist)
         artist.reload
-        expect(artist.name).to eq("VALID")
+        expect(artist.name).to eq('VALID')
       end
 
       it 're-renders the :edit template' do
@@ -118,9 +118,9 @@ describe ArtistsController do
   describe 'DELETE destroy' do
     it 'deletes the artist' do
       artist = create(:artist)
-      expect {
+      expect do
         delete :destroy, id: artist
-      }.to change(Artist, :count).by(-1)
+      end.to change(Artist, :count).by(-1)
     end
 
     it 'redirects to artists#index' do

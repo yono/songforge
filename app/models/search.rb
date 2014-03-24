@@ -1,5 +1,4 @@
 class Search
-
   def self.search(query)
     unsing = Song.includes(:artist).where(last_sang_at: nil).references(:artists)
     already = Song.includes(:artist).where.not(last_sang_at: nil).reorder('last_sang_at ASC').references(:artists)
@@ -9,7 +8,7 @@ class Search
       already = already.where(search_with_word(query))
     end
 
-    all_songs = unsing.to_a + already.to_a
+    unsing.to_a + already.to_a
   end
 
   def self.search_with_word(query)
