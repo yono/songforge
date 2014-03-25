@@ -45,8 +45,8 @@ class Song < ActiveRecord::Base
 
   def lyrics_file=(l)
     if l
-      lyrics_image = l.read
-      content_type = l.content_type
+      self.lyrics_image = l.read
+      self.content_type = l.content_type
     end
   end
 
