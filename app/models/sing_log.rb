@@ -8,10 +8,10 @@ class SingLog < ActiveRecord::Base
   end
 
   def exist_song?
-    song.present?
+    song(true).present?
   end
 
   def exist_artist?
-    exist_song? && song.artist.present?
+    exist_song? && song.artist(true).present?
   end
 end
