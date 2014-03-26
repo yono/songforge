@@ -2,7 +2,7 @@ class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
 
   def index
-    respond_with @artists = Kaminari.paginate_array(Artist.all).page(params[:page]).per(20)
+    respond_with @artists = Artist.page(params[:page]).per(20)
   end
 
   def show
