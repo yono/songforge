@@ -20,6 +20,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
+  gem 'awesome_print'
 end
 
 group :development, :test do
