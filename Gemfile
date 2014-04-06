@@ -28,6 +28,21 @@ gem 'active_decorator'
 # jQuery with rails
 gem 'jquery-rails'
 
+# css pre-processor with rails
+gem 'sass-rails',   '~> 4.0.0'
+
+# javascript pre-processor
+gem 'coffee-rails', '~> 4.0.0'
+
+# css pre-processor
+gem 'less'
+
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+gem 'therubyracer', platforms: :ruby
+
+# JavaScript compressor
+gem 'uglifier', '>= 1.0.3'
+
 group :development do
   # application process manager
   gem 'foreman'
@@ -106,19 +121,3 @@ group :test do
   gem 'poltergeist'
 end
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  # css pre-processor with rails
-  gem 'sass-rails',   '~> 4.0.0'
-  # javascript pre-processor
-  gem 'coffee-rails', '~> 4.0.0'
-  # css pre-processor
-  gem 'less'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', platforms: :ruby
-
-  # JavaScript compressor
-  gem 'uglifier', '>= 1.0.3'
-end
