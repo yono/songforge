@@ -6,7 +6,8 @@ describe SingLog do
     it 'returns formatted time' do
       song = build(:song)
       song.singing!
-      expect(song.sing_logs.first.sang_at).to eq song.created_at.strftime('%Y-%m-%d %H:%M')
+      sing_log = song.sing_logs.first
+      expect(sing_log.sang_at).to eq song.created_at.strftime('%Y-%m-%d %H:%M')
     end
   end
 
@@ -15,7 +16,8 @@ describe SingLog do
       it 'return true' do
         song = build(:song)
         song.singing!
-        expect(song.sing_logs.first.exist_song?).to be true
+        sing_log = song.sing_logs.first
+        expect(sing_log.exist_song?).to be true
       end
     end
 
@@ -36,7 +38,8 @@ describe SingLog do
         artist = Artist.create! name: 'Hikaru Utada'
         song = build(:song, artist_id: artist.id)
         song.singing!
-        expect(song.sing_logs.first.exist_artist?).to be true
+        sing_log = song.sing_logs.first
+        expect(sing_log.exist_artist?).to be true
       end
     end
 
@@ -45,8 +48,9 @@ describe SingLog do
         artist = Artist.create! name: 'Hikaru Utada'
         song = build(:song, artist_id: artist.id)
         song.singing!
+        sing_log = song.sing_logs.first
         artist.destroy!
-        expect(song.sing_logs.first.exist_artist?).to be false
+        expect(sing_log.exist_artist?).to be false
       end
     end
   end
