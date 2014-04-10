@@ -176,7 +176,7 @@ GEM
     parser (2.1.7)
       ast (~> 1.1)
       slop (~> 3.4, >= 3.4.5)
-    passenger (4.0.40)
+    passenger (4.0.41)
       daemon_controller (>= 1.2.0)
       rack
       rake (>= 0.8.1)
