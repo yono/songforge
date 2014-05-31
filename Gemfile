@@ -71,9 +71,6 @@ group :development do
 end
 
 group :development, :test do
-  # loads environment variables from .env
-  gem 'dotenv-rails'
-
   # irb alternative consosle with rails
   gem 'pry-rails'
 
