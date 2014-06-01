@@ -117,4 +117,3 @@ group :test do
   # javascript driver on test
   gem 'poltergeist'
 end
-
