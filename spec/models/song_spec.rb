@@ -108,6 +108,10 @@ describe Song do
           it 'create artist' do
             expect(Artist.where(name: 'Garnet Crow').present?).to be true
           end
+
+          it 'song belong to the artist' do
+            expect(song.artist.name).to eq(song.artist_name)
+          end
         end
       end
     end
