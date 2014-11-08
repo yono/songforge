@@ -11,6 +11,13 @@ describe Search do
       song2 = create(:song)
       expect(Search.search('')).to match_array([song1, song2])
     end
+
+    it 'ordered by created_at DESC' do
+      song1 = create(:song)
+      song2 = create(:song)
+      expect(Search.search('')[0]).to eq(song2)
+      expect(Search.search('')[1]).to eq(song1)
+    end
   end
 
   context 'with query' do
