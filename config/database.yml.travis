@@ -1,0 +1,6 @@
+# database setting for travis ci
+# http://docs.travis-ci.com/user/using-postgresql/#Using-PostgreSQL-in-your-Builds
+test:
+  adapter: postgresql
+  database: songforge_test
+  username: postgres

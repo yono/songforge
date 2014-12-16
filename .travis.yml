@@ -6,4 +6,5 @@ script:
   - bundle exec rake db:test:prepare
   - bundle exec rake spec
 before_script:
+  - cp config/database.yml.travis config/database.yml
   - psql -c 'create database songforge_test;' -U postgres
