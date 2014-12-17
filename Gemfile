@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.1.5'
 
-gem 'rails', '4.1.1'
+gem 'rails', '4.1.8'
 
 # application server
 gem 'passenger'
@@ -29,7 +29,7 @@ gem 'active_decorator'
 gem 'jquery-rails'
 
 # css pre-processor with rails
-gem 'sass-rails',   '~> 4.0.0'
+gem 'sass-rails',   '~> 4.0.3'
 
 # javascript pre-processor
 gem 'coffee-rails', '~> 4.0.0'
@@ -41,7 +41,7 @@ gem 'less'
 gem 'therubyracer', platforms: :ruby
 
 # JavaScript compressor
-gem 'uglifier', '>= 1.0.3'
+gem 'uglifier', '>= 1.3.0'
 
 group :development do
   # application process manager
