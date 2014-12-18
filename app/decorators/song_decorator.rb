@@ -2,9 +2,9 @@
 module SongDecorator
   def star_link
     if sang?
-      link_to '<i class="icon-star"></i>'.html_safe, singing_song_path(self)
+      link_to '<i class="fa fa-star"></i>'.html_safe, singing_song_path(self)
     else
-      link_to '<i class="icon-star-empty"></i>'.html_safe, singing_song_path(self)
+      link_to '<i class="fa fa-star-o"></i>'.html_safe, singing_song_path(self)
     end
   end
 
