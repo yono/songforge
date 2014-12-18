@@ -1,6 +1,7 @@
 language: ruby
 rvm: 2.1.5
 env: SECRET_TOKEN=random_string_as_secret_token
+sudo: false
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
