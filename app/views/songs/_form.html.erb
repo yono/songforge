@@ -1,24 +1,24 @@
 <%= form_for(song) do |f| %>
   <%= render 'error_messages', object: f.object %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :artist_id %>
-    <%= f.collection_select 'artist_id', Artist.all, :id, :name, include_blank: true %>
-    <%= f.text_field :artist_name, :placeholder => t('helpers.placeholder.song.artist_name') %>
+    <%= f.collection_select 'artist_id', Artist.all, :id, :name, {include_blank: true}, {class: 'form-control'} %>
+    <%= f.text_field :artist_name, placeholder: t('helpers.placeholder.song.artist_name'), class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :movie_url %>
-    <%= f.text_field :movie_url %>
+    <%= f.text_field :movie_url, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :lyrics_file %>
-    <%= f.file_field :lyrics_file %>
+    <%= f.file_field :lyrics_file, class: 'form-control' %>
   </div>
   <div class="actions">
-    <%= f.submit :class => 'btn'%>
+    <%= f.submit :class => 'btn btn-default'%>
   </div>
 <% end %>
