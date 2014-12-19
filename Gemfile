@@ -78,7 +78,7 @@ group :development, :test do
   gem 'marco-polo'
 
   # BDD library with rails
-  gem 'rspec-rails', '2.14.2'
+  gem 'rspec-rails', '2.99'
 
   # rspec formatter
   gem 'fuubar'
