@@ -98,7 +98,6 @@ describe Song do
         song.lyrics_file = tempfile
       end
 
-      #its(:has_lyrics_file?) { true }
       it 'return true' do
         expect(song.has_lyrics_file?).to be true
       end
