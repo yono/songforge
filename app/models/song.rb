@@ -13,6 +13,10 @@ class Song < ActiveRecord::Base
 
   default_scope { order('last_sang_at DESC') }
 
+  def dummy
+    'カバレッジを下げるために生まれた'
+  end
+
   def singing!
     self.last_sang_at = DateTime.now
     save!
