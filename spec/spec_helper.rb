@@ -13,7 +13,6 @@ end
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
-require 'rspec/autorun'
 require 'capybara/poltergeist'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -28,6 +27,7 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+  config.infer_spec_type_from_file_location!
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -59,9 +59,13 @@ RSpec.configure do |config|
 
   # for active_decorator
   require 'rspec/rails/example/decorator_example_group'
-  config.include RSpec::Rails::DecoratorExampleGroup, type: :decorator, example_group: {
-    file_path: config.escaped_path(%w(spec decorators))
-  }
+  #config.include RSpec::Rails::DecoratorExampleGroup, type: :decorator, example_group: {
+  #  file_path: config.escaped_path(%w(spec decorators))
+  #}
+  config.include RSpec::Rails::DecoratorExampleGroup, type: :decorator
+  config.define_derived_metadata(file_path: /spec\/decorators/) do |metadata|
+    metadata[:type] ||= :decorator
+  end
 
   # for selenium-webdriver
   Capybara.javascript_driver = :poltergeist

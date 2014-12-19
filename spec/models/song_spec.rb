@@ -23,7 +23,9 @@ describe Song do
 
   describe '.sang?' do
     context 'when not sang' do
-      its(:sang?) { should be_false }
+      it 'return false' do
+        expect(song.sang?).to be false
+      end
     end
 
     context 'when already sang' do
@@ -38,7 +40,9 @@ describe Song do
   describe '.youtube_v' do
     context 'has no movie_url' do
       before { song.movie_url = nil }
-      its(:youtube_v) { should be_nil }
+      it 'returns nil' do
+        expect(song.youtube_v).to be_nil
+      end
     end
 
     context 'has movie_url' do
@@ -53,45 +57,57 @@ describe Song do
   describe '.has_movie?' do
     context 'when has no movie_uel' do
       before { song.movie_url = nil }
-      its(:have_movie?) { false }
+      it 'return false' do
+        expect(song.has_movie?).to be false
+      end
     end
 
     context 'when has movie_url' do
       before { song.movie_url = 'http://www.youtube.com/watch?v=abcdefghi' }
-      its(:have_movie?) { true }
+      it 'return true' do
+        expect(song.has_movie?).to be true
+      end
     end
   end
 
   describe '.lyrics_file=' do
     before do
       tempfile = Tempfile.new('test.jpg', "#{Rails.root}/spec/images")
-      tempfile.stub(:content_type).and_return('image/jpeg')
-      tempfile.stub(:read).and_return('binary')
+      allow(tempfile).to receive(:content_type).and_return('image/jpeg')
+      allow(tempfile).to receive(:read).and_return('binary')
       song.lyrics_file = tempfile
     end
 
-    its(:content_type) { 'image/jpeg' }
+    it 'return content_type' do
+      expect(song.content_type).to eq('image/jpeg')
+    end
   end
 
   describe '.has_lyrics_file?' do
     context 'when has no lyrics file' do
-      its(:has_lyrics_file?) { false }
+      it 'return false' do
+        expect(song.has_lyrics_file?).to be false
+      end
     end
 
     context 'when has lyrics file' do
       before do
         tempfile = Tempfile.new('test.jpg', "#{Rails.root}/spec/images")
-        tempfile.stub(:content_type).and_return('image/jpeg')
-        tempfile.stub(:read).and_return('binary')
+        allow(tempfile).to receive(:content_type).and_return('image/jpeg')
+        allow(tempfile).to receive(:read).and_return('binary')
         song.lyrics_file = tempfile
       end
 
-      its(:has_lyrics_file?) { true }
+      it 'return true' do
+        expect(song.has_lyrics_file?).to be true
+      end
     end
   end
 
   describe '.artist_name' do
-    its(:artist_name) { nil }
+    it 'return nil' do
+      expect(song.artist_name).to be_nil
+    end
   end
 
   describe '.artist_name=' do
