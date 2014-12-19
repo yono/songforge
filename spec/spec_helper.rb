@@ -60,9 +60,13 @@ RSpec.configure do |config|
 
   # for active_decorator
   require 'rspec/rails/example/decorator_example_group'
-  config.include RSpec::Rails::DecoratorExampleGroup, type: :decorator, example_group: {
-    file_path: config.escaped_path(%w(spec decorators))
-  }
+  #config.include RSpec::Rails::DecoratorExampleGroup, type: :decorator, example_group: {
+  #  file_path: config.escaped_path(%w(spec decorators))
+  #}
+  config.include RSpec::Rails::DecoratorExampleGroup, type: :decorator
+  config.define_derived_metadata(file_path: /spec\/decorators/) do |metadata|
+    metadata[:type] ||= :decorator
+  end
 
   # for selenium-webdriver
   Capybara.javascript_driver = :poltergeist
