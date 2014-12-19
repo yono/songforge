@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :sing_logs, only: :index
+  resources :sing_logs, only: [:index, :destroy]
 
   resources :songs do
     member do
