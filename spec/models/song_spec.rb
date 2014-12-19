@@ -73,8 +73,8 @@ describe Song do
   describe '.lyrics_file=' do
     before do
       tempfile = Tempfile.new('test.jpg', "#{Rails.root}/spec/images")
-      tempfile.stub(:content_type).and_return('image/jpeg')
-      tempfile.stub(:read).and_return('binary')
+      allow(tempfile).to receive(:content_type).and_return('image/jpeg')
+      allow(tempfile).to receive(:read).and_return('binary')
       song.lyrics_file = tempfile
     end
 
@@ -93,8 +93,8 @@ describe Song do
     context 'when has lyrics file' do
       before do
         tempfile = Tempfile.new('test.jpg', "#{Rails.root}/spec/images")
-        tempfile.stub(:content_type).and_return('image/jpeg')
-        tempfile.stub(:read).and_return('binary')
+        allow(tempfile).to receive(:content_type).and_return('image/jpeg')
+        allow(tempfile).to receive(:read).and_return('binary')
         song.lyrics_file = tempfile
       end
 
