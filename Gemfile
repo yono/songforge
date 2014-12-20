@@ -78,10 +78,7 @@ group :development, :test do
   gem 'marco-polo'
 
   # BDD library with rails
-  gem 'rspec-rails', '~> 3.0.1'
-
-  # rspec formatter
-  gem 'fuubar'
+  gem 'rspec-rails', '~> 3.1.0'
 
   # rspec command for spring
   gem 'spring-commands-rspec'
