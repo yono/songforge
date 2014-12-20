@@ -43,6 +43,9 @@ ja:
       last: '»'
       next: '›'
       previous: '‹'
+  dictionary:
+    form:
+      disable_with: '送信中……'
   activerecord:
     errors:
       template:
