@@ -4,11 +4,10 @@ class SongsController < ApplicationController
   def index
     song_num = 100
     @all_songs = Search.search(params[:q])
-    respond_with @songs = Kaminari.paginate_array(@all_songs).page(params[:page]).per(song_num)
+    @songs = Kaminari.paginate_array(@all_songs).page(params[:page]).per(song_num)
   end
 
   def show
-    respond_with @song
   end
 
   def new
@@ -17,7 +16,6 @@ class SongsController < ApplicationController
       artist = Artist.find(params[:artist_id])
       @song.artist = artist if artist.present?
     end
-    respond_with @song
   end
 
   def edit
@@ -25,17 +23,34 @@ class SongsController < ApplicationController
 
   def create
     @song = Song.new(song_params)
-    @song.save
-    respond_with @song
+    
+    respond_to do |format|
+      if @song.save
+        flash[:notice] = 'Song was successfully created.'
+        format.html { redirect_to @song }
+      else
+        format.html { render action: 'new' }
+      end
+    end
   end
 
   def update
-    @song.update_attributes(song_params)
-    respond_with @song, location: @song, action: 'edit'
+    respond_to do |format|
+      if @song.update_attributes(song_params)
+        flash[:notice] = 'Song was successfully updated.'
+        format.html { redirect_to @song }
+      else
+        format.html { render action: 'edit' }
+      end
+    end
   end
 
   def destroy
-    respond_with @song.destroy
+    @song.destroy
+
+    respond_to do |format|
+      format.html { redirect_to songs_url }
+    end
   end
 
   def singing

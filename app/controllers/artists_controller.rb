@@ -2,15 +2,14 @@ class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
 
   def index
-    respond_with @artists = Artist.page(params[:page]).per(20)
+    @artists = Artist.page(params[:page]).per(20)
   end
 
   def show
-    respond_with @artist
   end
 
   def new
-    respond_with @artist = Artist.new
+    @artist = Artist.new
   end
 
   def edit
@@ -18,17 +17,34 @@ class ArtistsController < ApplicationController
 
   def create
     @artist = Artist.new(artist_params)
-    @artist.save
-    respond_with @artist
+
+    respond_to do |format|
+      if @artist.save
+        flash[:notice] = 'Artist was successfully created.'
+        format.html { redirect_to @artist }
+      else
+        format.html { render action: 'new' }
+      end
+    end
   end
 
   def update
-    @artist.update_attributes(artist_params)
-    respond_with @artist, location: @artist
+    respond_to do |format|
+      if @artist.update_attributes(artist_params)
+        flash[:notice] = 'Artist was successfully updated.'
+        format.html { redirect_to @artist }
+      else
+        format.html { render action: 'edit' }
+      end
+    end
   end
 
   def destroy
-    respond_with @artist.destroy
+    @artist.destroy
+
+    respond_to do |format|
+      format.html { redirect_to artists_url }
+    end
   end
 
   private
