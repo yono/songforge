@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.1.5'
 
-gem 'rails', '4.1.8'
+gem 'rails', '4.2.0'
 
 # application server
 gem 'passenger'
@@ -29,10 +29,10 @@ gem 'active_decorator'
 gem 'jquery-rails'
 
 # css pre-processor with rails
-gem 'sass-rails',   '~> 4.0.3'
+gem 'sass-rails',   '~> 5.0.0'
 
 # javascript pre-processor
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.1.0'
 
 # css pre-processor
 gem 'less'
@@ -78,10 +78,7 @@ group :development, :test do
   gem 'marco-polo'
 
   # BDD library with rails
-  gem 'rspec-rails', '~> 3.0.1'
-
-  # rspec formatter
-  gem 'fuubar'
+  gem 'rspec-rails', '~> 3.1.0'
 
   # rspec command for spring
   gem 'spring-commands-rspec'

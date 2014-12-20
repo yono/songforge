@@ -62,7 +62,7 @@ describe SongDecorator do
     it 'returns link to google search' do
       song = build(:song)
       decorate song
-      expect(song.lyric_link).to eq("<a href=\"http://google.co.jp/search?q=#{song.name}　#{t('songs.show.lyric')}\" target=\"_blank\">#{t('songs.show.lyric_link_name', name: song.name)}</a>")
+      expect(song.lyric_link).to eq("<a target=\"_blank\" href=\"http://google.co.jp/search?q=#{song.name}　#{t('songs.show.lyric')}\">#{t('songs.show.lyric_link_name', name: song.name)}</a>")
     end
   end
 end
