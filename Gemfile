@@ -5,7 +5,7 @@ ruby '2.1.5'
 gem 'rails', '4.2.0'
 
 # application server
-gem 'passenger'
+gem 'passenger', '5.0.0.beta2'
 
 # css framework
 gem 'twitter-bootstrap-rails'
