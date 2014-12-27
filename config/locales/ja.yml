@@ -62,7 +62,6 @@ ja:
         name: '曲名'
         artist_id: '歌手'
         movie_url: '動画URL'
-        lyrics_file: '歌詞画像'
         last_sang_at: '最後に歌った日'
       artist:
         name: '歌手名'

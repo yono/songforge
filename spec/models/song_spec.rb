@@ -70,40 +70,6 @@ describe Song do
     end
   end
 
-  describe '.lyrics_file=' do
-    before do
-      tempfile = Tempfile.new('test.jpg', "#{Rails.root}/spec/images")
-      allow(tempfile).to receive(:content_type).and_return('image/jpeg')
-      allow(tempfile).to receive(:read).and_return('binary')
-      song.lyrics_file = tempfile
-    end
-
-    it 'return content_type' do
-      expect(song.content_type).to eq('image/jpeg')
-    end
-  end
-
-  describe '.has_lyrics_file?' do
-    context 'when has no lyrics file' do
-      it 'return false' do
-        expect(song.has_lyrics_file?).to be false
-      end
-    end
-
-    context 'when has lyrics file' do
-      before do
-        tempfile = Tempfile.new('test.jpg', "#{Rails.root}/spec/images")
-        allow(tempfile).to receive(:content_type).and_return('image/jpeg')
-        allow(tempfile).to receive(:read).and_return('binary')
-        song.lyrics_file = tempfile
-      end
-
-      it 'return true' do
-        expect(song.has_lyrics_file?).to be true
-      end
-    end
-  end
-
   describe '.artist_name' do
     it 'return nil' do
       expect(song.artist_name).to be_nil

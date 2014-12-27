@@ -43,17 +43,6 @@ class Song < ActiveRecord::Base
     movie_url.present?
   end
 
-  def lyrics_file=(l)
-    if l
-      self.lyrics_image = l.read
-      self.content_type = l.content_type
-    end
-  end
-
-  def has_lyrics_file?
-    lyrics_image.present?
-  end
-
   def save_artist
     if artist_name.present?
       artist = Artist.new name: artist_name
