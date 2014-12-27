@@ -60,11 +60,6 @@ class SongsController < ApplicationController
     redirect_to songs_url
   end
 
-  def lyrics_image
-    @song = Song.find(params[:id])
-    send_data(@song.lyrics_image, type: @song.content_type)
-  end
-
   private
 
     def set_song
