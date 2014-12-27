@@ -11,34 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20121113121051) do
+ActiveRecord::Schema.define(version: 20141227105801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "artists", force: true do |t|
-    t.string   "name"
+  create_table "artists", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "sing_logs", force: true do |t|
+  create_table "sing_logs", force: :cascade do |t|
     t.integer  "song_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "song_name"
-    t.string   "artist_name"
+    t.string   "song_name",   limit: 255
+    t.string   "artist_name", limit: 255
   end
 
-  create_table "songs", force: true do |t|
-    t.string   "name"
+  create_table "songs", force: :cascade do |t|
+    t.string   "name",         limit: 255
     t.integer  "artist_id"
     t.datetime "last_sang_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "movie_url"
-    t.binary   "lyrics_image"
-    t.string   "content_type"
+    t.string   "movie_url",    limit: 255
   end
 
 end

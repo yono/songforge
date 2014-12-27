@@ -159,11 +159,4 @@ describe SongsController do
     end
   end
 
-  describe 'GET lyrics_image' do
-    it 'returns image' do
-      song = create(:song, content_type: 'image/jpeg')
-      get :lyrics_image, id: song
-      expect(response.header['Content-Type']).to eq('image/jpeg')
-    end
-  end
 end

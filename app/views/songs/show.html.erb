@@ -24,16 +24,10 @@
   </div>
   <% end -%>
 
-  <% if @song.has_lyrics_file? -%>
-  <div class='span6'>
-    <%= image_tag lyrics_image_song_path(@song) %>
-  </div>
-  <% else -%>
-    <p>
-      <b><%= t('.lyric_link') -%>:</b>
-      <%= @song.lyric_link -%>
-    </p>
-  <% end -%>
+  <p>
+    <b><%= t('.lyric_link') -%>:</b>
+    <%= @song.lyric_link -%>
+  </p>
 </div>
 
 <%= link_to t('songs.edit.title'), edit_song_path(@song) %> |
