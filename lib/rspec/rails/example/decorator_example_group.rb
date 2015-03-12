@@ -12,7 +12,7 @@ module RSpec::Rails
     included do
       metadata[:type] = :decorator
       before do
-        ActiveDecorator::ViewContext.current = controller.view_context
+        ActiveDecorator::ViewContext.push controller.view_context
       end
     end
   end
