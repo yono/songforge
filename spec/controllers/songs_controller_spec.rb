@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe SongsController do
 
+  before { test_sign_in }
+
   describe 'GET index' do
     it 'assigns @songs' do
       song = create(:song)

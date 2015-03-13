@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe ArtistsController do
 
+  before { test_sign_in }
+
   describe 'GET index' do
     it 'assigns artists to @artists' do
       artist = create(:artist)

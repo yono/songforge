@@ -44,26 +44,8 @@
         <span class="glyphicon glyphicon-bar"></span>
       </a>
       </div>
-      <div class="container">
-        <div class="container">
-          <div class="container navbar-collapse">
-            <%= form_tag root_path, class: 'form-search', method: 'GET' do %>
-              <%= text_field_tag :q, params[:q], class: 'input-medium search-query' %>
-              <%= submit_tag t('.submit'), class: 'btn btn-xs navbar-btn' %>
-            <% if signed_in? %>
-              <%= link_to "Sign out", signout_path, method: :delete %>
-            <% end %>
-            <% end %>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
     </div>
 
-    <ul class="nav nav-tabs" id="dashboard">
-      <li <%= controller.controller_name == "songs" ? "class=active" : '' %>><a href="/"><%= t('songs.index.title') %></a></li>
-      <li <%= controller.controller_name == "artists" ? "class=active" : '' %>><a href="/artists"><%= t('artists.index.title') %></a></li>
-      <li <%= controller.controller_name == "sing_logs" ? "class=active" : '' %>><a href="/sing_logs"><%= t('sing_logs.index.title') %></a></li>
-    </ul>
     <div class="container">
       <div class="row">
         <div class="col-md-12">

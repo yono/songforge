@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe SingLogsController do
+
+  before { test_sign_in }
+
   describe 'GET index' do
     it 'assigns @sing_logs' do
       sing_log = SingLog.create!
