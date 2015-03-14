@@ -50,6 +50,7 @@ ja:
   dictionary:
     form:
       disable_with: '送信中……'
+      login_error: 'ユーザー名かパスワードが違います'
   activerecord:
     errors:
       template:
