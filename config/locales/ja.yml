@@ -7,6 +7,10 @@ ja:
     placeholder:
       song:
         artist_name: '歌手を新規追加する場合'
+    label:
+      session:
+        username: 'ユーザー名'
+        password: 'パスワード'
   layouts:
     application:
       submit: '検索'
