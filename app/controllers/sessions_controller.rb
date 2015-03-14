@@ -8,8 +8,7 @@ class SessionsController < ApplicationController
       sign_in
       redirect_to root_path
     else
-      flash.now[:error] = "Invalid username/password combination."
-      render 'new'
+      redirect_to signin_path, flash: {error: t('dictionary.form.login_error')}
     end
   end
 

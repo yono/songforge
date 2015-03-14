@@ -7,6 +7,10 @@ ja:
     placeholder:
       song:
         artist_name: '歌手を新規追加する場合'
+    label:
+      session:
+        username: 'ユーザー名'
+        password: 'パスワード'
   layouts:
     application:
       submit: '検索'
@@ -46,6 +50,7 @@ ja:
   dictionary:
     form:
       disable_with: '送信中……'
+      login_error: 'ユーザー名かパスワードが違います'
   activerecord:
     errors:
       template:
