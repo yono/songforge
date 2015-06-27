@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def search_icon_link(song)
-    link_to '<i class="fa fa-search"></li>'.html_safe, song.lyric_url
+    link_to '<i class="fa fa-search"></li>'.html_safe, song.lyric_url, target: '_blank'
   end
 
   def table_css_classes
