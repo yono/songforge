@@ -68,6 +68,7 @@ ja:
         artist_id: '歌手'
         movie_url: '動画URL'
         last_sang_at: '最後に歌った日'
+        sing_logs: '曲履歴'
       artist:
         name: '歌手名'
       sing_log:
