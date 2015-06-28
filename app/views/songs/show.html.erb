@@ -30,5 +30,23 @@
   </p>
 </div>
 
+<p>
+  <b><%= Song.human_attribute_name('sing_logs') -%>:</b>
+  <table class="<%= table_css_classes -%>">
+    <thead>
+    <tr>
+      <th><%= SingLog.human_attribute_name('sang_at') -%></th>
+    </tr>
+    </thead>
+    <tbody>
+      <% @song.sing_logs.each do |sing_log| %>
+        <tr>
+          <td><%= sing_log.sang_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</p>
+
 <%= link_to t('songs.edit.title'), edit_song_path(@song) %> |
 <%= link_to t('songs.index.title'), songs_path %>
