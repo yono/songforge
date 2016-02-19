@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.0'
 
-gem 'rails', '4.2.0'
+gem 'rails', '~> 4.2.5.1'
 
 # application server
 gem 'thin'
@@ -26,7 +26,7 @@ gem 'spring'
 gem 'active_decorator'
 
 # jQuery with rails
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 4.0.4'
 
 # css pre-processor with rails
 gem 'sass-rails',   '~> 5.0.0'
@@ -41,7 +41,7 @@ gem 'less'
 gem 'therubyracer', platforms: :ruby
 
 # JavaScript compressor
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier', '>= 2.7.2'
 
 group :development do
   # application process manager
@@ -115,3 +115,6 @@ group :test do
   gem 'poltergeist'
 end
 
+gem 'nokogiri', '>= 1.6.7.2'
+gem 'rails-html-sanitizer', '~> 1.0.3'
+gem 'rest-client', '>= 1.8.0'
