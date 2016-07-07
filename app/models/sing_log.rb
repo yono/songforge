@@ -1,4 +1,4 @@
-class SingLog < ActiveRecord::Base
+class SingLog < ApplicationRecord
   belongs_to :song
 
   default_scope { order('created_at DESC') }
