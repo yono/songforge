@@ -77,6 +77,9 @@ group :development, :test do
   # BDD library with rails
   gem 'rspec-rails', '~> 3.1.0'
 
+  # for controller test
+  gem 'rails-controller-testing'
+
   # rspec command for spring
   gem 'spring-commands-rspec'
 
