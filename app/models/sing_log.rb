@@ -8,10 +8,18 @@ class SingLog < ApplicationRecord
   end
 
   def exist_song?
-    song(true).present?
+    begin
+      song.try(:reload).present?
+    rescue ActiveRecord::RecordNotFound
+      false
+    end
   end
 
   def exist_artist?
-    exist_song? && song.artist(true).present?
+    begin
+      exist_song? && song.artist.try(:reload).present?
+    rescue ActiveRecord::RecordNotFound
+      false
+    end
   end
 end
