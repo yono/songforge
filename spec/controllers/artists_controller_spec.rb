@@ -20,13 +20,13 @@ describe ArtistsController do
   describe 'GET show' do
     it 'assigns the artist to @artist' do
       artist = create(:artist)
-      get :show, id: artist
+      get :show, params: {id: artist}
       expect(assigns(:artist)).to eq artist
     end
 
     it 'renders the :show template' do
       artist = create(:artist)
-      get :show, id: artist
+      get :show, params: {id: artist}
       expect(response).to render_template :show
     end
   end
@@ -46,13 +46,13 @@ describe ArtistsController do
   describe 'GET edit' do
     it 'assigns the requested Artist to @artist' do
       artist = create(:artist)
-      get :edit, id: artist
+      get :edit, params: {id: artist}
       expect(assigns(:artist)).to eq artist
     end
 
     it 'renders the :edit template' do
       artist = create(:artist)
-      get :edit, id: artist
+      get :edit, params: {id: artist}
       expect(response).to render_template :edit
     end
   end
@@ -61,12 +61,12 @@ describe ArtistsController do
     context 'with valid attributes' do
       it 'creates a new artist' do
         expect do
-          post :create, artist: attributes_for(:artist)
+          post :create, params: {artist: attributes_for(:artist)}
         end.to change(Artist, :count).by(1)
       end
 
       it 'redirects to artists#show' do
-        post :create, artist: attributes_for(:artist)
+        post :create, params: {artist: attributes_for(:artist)}
         expect(response).to redirect_to artist_url(assigns[:artist])
       end
     end
@@ -74,12 +74,12 @@ describe ArtistsController do
     context 'with invalid attributes' do
       it 'does not create a new artist' do
         expect do
-          post :create, artist: attributes_for(:invalid_artist)
+          post :create, params: {artist: attributes_for(:invalid_artist)}
         end.to_not change(Artist, :count)
       end
 
       it 're-renders the :new template' do
-        post :create, artist: attributes_for(:invalid_artist)
+        post :create, params: {artist: attributes_for(:invalid_artist)}
         expect(response).to render_template :new
       end
     end
@@ -89,14 +89,14 @@ describe ArtistsController do
     context 'with valid attributes' do
       it 'updates the artist' do
         artist = create(:artist, name: 'ORIGINAL')
-        patch :update, id: artist, artist: attributes_for(:artist, name: 'UPDATED')
+        patch :update, params: {id: artist, artist: attributes_for(:artist, name: 'UPDATED')}
         artist.reload
         expect(artist.name).to eq('UPDATED')
       end
 
       it 'redirects to artists#show' do
         artist = create(:artist)
-        patch :update, id: artist, artist: attributes_for(:artist)
+        patch :update, params: {id: artist, artist: attributes_for(:artist)}
         expect(response).to redirect_to artist_url(artist)
       end
     end
@@ -104,14 +104,14 @@ describe ArtistsController do
     context 'with invalid attributes' do
       it 'does not update the artist' do
         artist = create(:artist, name: 'VALID')
-        patch :update, id: artist, artist: attributes_for(:invalid_artist)
+        patch :update, params: {id: artist, artist: attributes_for(:invalid_artist)}
         artist.reload
         expect(artist.name).to eq('VALID')
       end
 
       it 're-renders the :edit template' do
         artist = create(:artist, name: 'VALID')
-        patch :update, id: artist, artist: attributes_for(:invalid_artist)
+        patch :update, params: {id: artist, artist: attributes_for(:invalid_artist)}
         expect(response).to render_template 'edit'
       end
     end
@@ -121,13 +121,13 @@ describe ArtistsController do
     it 'deletes the artist' do
       artist = create(:artist)
       expect do
-        delete :destroy, id: artist
+        delete :destroy, params: {id: artist}
       end.to change(Artist, :count).by(-1)
     end
 
     it 'redirects to artists#index' do
       artist = create(:artist)
-      delete :destroy, id: artist
+      delete :destroy, params: {id: artist}
       expect(response).to redirect_to artists_url
     end
   end
