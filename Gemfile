@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.3'
 
-gem 'rails', '~> 4.2.5'
+gem 'rails', '5.0.0'
 
 # application server
 gem 'thin'
@@ -59,9 +59,6 @@ group :development do
   gem 'better_errors'
   # provide console to better_errors
   gem 'binding_of_caller'
-
-  # mute assets pipeline log
-  gem 'quiet_assets'
 
   # pretty print
   gem 'awesome_print'
