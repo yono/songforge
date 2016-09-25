@@ -20,7 +20,7 @@ describe SongsController do
   describe 'GET show' do
     it 'assigns song to @song' do
       song = create(:song)
-      get :show, id: song
+      get :show, params: {id: song}
       expect(assigns(:song)).to eq(song)
     end
   end
@@ -41,7 +41,7 @@ describe SongsController do
     context 'with artist_id' do
       it 'assigns a new Song with Artist to @song' do
         artist = Artist.create! name: 'Artist'
-        get :new, artist_id: artist
+        get :new, params: {artist_id: artist}
         expect(assigns(:song).artist_id).to eq(artist.id)
       end
     end
@@ -50,13 +50,13 @@ describe SongsController do
   describe 'GET edit' do
     it 'assigns the requested song to @song' do
       song = create(:song)
-      get :edit, id: song
+      get :edit, params: {id: song}
       expect(assigns(:song)).to eq(song)
     end
 
     it 'renders the :edit template' do
       song = create(:song)
-      get :edit, id: song
+      get :edit, params: {id: song}
       expect(response).to render_template :edit
     end
   end
@@ -66,12 +66,12 @@ describe SongsController do
       context 'without artist_name param' do
         it 'creates a new song' do
           expect do
-            post :create, song: attributes_for(:song)
+            post :create, params: {song: attributes_for(:song)}
           end.to change(Song, :count).by(1)
         end
 
         it 'redirects to songs#show' do
-          post :create, song: attributes_for(:song)
+          post :create, params: {song: attributes_for(:song)}
           expect(response).to redirect_to song_url(assigns[:song])
         end
       end
@@ -79,7 +79,7 @@ describe SongsController do
       context 'with artist_name param' do
         it 'creates a new artist' do
           expect do
-            post :create, song: attributes_for(:song_with_artist)
+            post :create, params: {song: attributes_for(:song_with_artist)}
           end.to change(Artist, :count).by(1)
         end
       end
@@ -88,12 +88,12 @@ describe SongsController do
     context 'with invalid attributes' do
       it 'does not create a new song' do
         expect do
-          post :create, song: attributes_for(:invalid_song)
+          post :create, params: {song: attributes_for(:invalid_song)}
         end.to_not change(Song, :count)
       end
 
       it 're-renders the :new template' do
-        post :create, song: attributes_for(:invalid_song)
+        post :create, params: {song: attributes_for(:invalid_song)}
         expect(response).to render_template :new
       end
     end
@@ -103,14 +103,14 @@ describe SongsController do
     context 'with valid attributes' do
       it 'update the song' do
         song = create(:song)
-        patch :update, id: song, song: attributes_for(:song, name: 'NewSong')
+        patch :update, params: {id: song, song: attributes_for(:song, name: 'NewSong')}
         song.reload
         expect(song.name).to eq('NewSong')
       end
 
       it 'redirects to songs#show' do
         song = create(:song)
-        patch :update, id: song, song: attributes_for(:song)
+        patch :update, params: {id: song, song: attributes_for(:song)}
         expect(response).to redirect_to song
       end
     end
@@ -118,14 +118,14 @@ describe SongsController do
     context 'with invalid attributes' do
       it 'does not update the song' do
         song = create(:song, name: 'ExistSong')
-        patch :update, id: song, song: attributes_for(:invalid_song)
+        patch :update, params: {id: song, song: attributes_for(:invalid_song)}
         song.reload
         expect(song.name).to eq('ExistSong')
       end
 
       it 're-renders the :edit template' do
         song = create(:song)
-        post :update, id: song, song: attributes_for(:invalid_song)
+        post :update, params: {id: song, song: attributes_for(:invalid_song)}
         expect(response).to render_template :edit
       end
     end
@@ -135,13 +135,13 @@ describe SongsController do
     it 'deletes the song' do
       song = create(:song)
       expect do
-        delete :destroy, id: song
+        delete :destroy, params: {id: song}
       end.to change(Song, :count).by(-1)
     end
 
     it 'redirects to songs#index' do
       song = create(:song)
-      delete :destroy, id: song
+      delete :destroy, params: {id: song}
       expect(response).to redirect_to songs_url
     end
   end
@@ -150,13 +150,13 @@ describe SongsController do
     it 'creates a new sing_log' do
       song = create(:song)
       expect do
-        get :singing, id: song
+        get :singing, params: {id: song}
       end.to change(SingLog, :count).by(1)
     end
 
     it 'redirects to songs#index' do
       song = create(:song)
-      get :singing, id: song
+      get :singing, params: {id: song}
       expect(response).to redirect_to songs_url
     end
   end

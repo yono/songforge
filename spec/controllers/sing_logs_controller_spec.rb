@@ -21,7 +21,7 @@ describe SingLogsController do
     it 'deletes the sing_log' do
       sing_log = SingLog.create!
       expect do
-        delete :destroy, id: sing_log
+        delete :destroy, params: {id: sing_log}
       end.to change(SingLog, :count).by(-1)
     end
   end

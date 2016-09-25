@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.3'
 
-gem 'rails', '~> 4.2.5'
+gem 'rails', '5.0.0'
 
 # application server
 gem 'thin'
@@ -60,9 +60,6 @@ group :development do
   # provide console to better_errors
   gem 'binding_of_caller'
 
-  # mute assets pipeline log
-  gem 'quiet_assets'
-
   # pretty print
   gem 'awesome_print'
 
@@ -79,6 +76,9 @@ group :development, :test do
 
   # BDD library with rails
   gem 'rspec-rails', '~> 3.1.0'
+
+  # for controller test
+  gem 'rails-controller-testing'
 
   # rspec command for spring
   gem 'spring-commands-rspec'

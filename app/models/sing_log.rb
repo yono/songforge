@@ -1,4 +1,4 @@
-class SingLog < ActiveRecord::Base
+class SingLog < ApplicationRecord
   belongs_to :song
 
   default_scope { order('created_at DESC') }
@@ -8,10 +8,18 @@ class SingLog < ActiveRecord::Base
   end
 
   def exist_song?
-    song(true).present?
+    begin
+      song.try(:reload).present?
+    rescue ActiveRecord::RecordNotFound
+      false
+    end
   end
 
   def exist_artist?
-    exist_song? && song.artist(true).present?
+    begin
+      exist_song? && song.artist.try(:reload).present?
+    rescue ActiveRecord::RecordNotFound
+      false
+    end
   end
 end
