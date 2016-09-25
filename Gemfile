@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.3'
+ruby '2.2.5'
 
 gem 'rails', '5.0.0'
 
@@ -75,7 +75,7 @@ group :development, :test do
   gem 'marco-polo'
 
   # BDD library with rails
-  gem 'rspec-rails', '~> 3.1.0'
+  gem 'rspec-rails'
 
   # for controller test
   gem 'rails-controller-testing'
@@ -88,10 +88,6 @@ group :development, :test do
 
   # fixture replacement
   gem 'factory_girl_rails'
-
-  # static metrics tools
-  gem 'code_hunter'
-  gem 'rubocop', require: false
 end
 
 group :production do
