@@ -110,7 +110,3 @@ group :test do
   # javascript driver on test
   gem 'poltergeist'
 end
-
-gem 'nokogiri', '>= 1.6.7.2'
-gem 'rails-html-sanitizer', '~> 1.0.3'
-gem 'rest-client', '>= 1.8.0'

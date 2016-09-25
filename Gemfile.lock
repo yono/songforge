@@ -79,8 +79,6 @@ GEM
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     docile (1.1.5)
-    domain_name (0.5.20160826)
-      unf (>= 0.0.5, < 1.0.0)
     easy_translate (0.5.0)
       json
       thread
@@ -118,8 +116,6 @@ GEM
     hirb-unicode (0.0.5)
       hirb (~> 0.5)
       unicode-display_width (~> 0.1.1)
-    http-cookie (1.0.2)
-      domain_name (~> 0.5)
     i18n (0.7.0)
     i18n-tasks (0.9.5)
       activesupport (>= 4.0.2)
@@ -166,7 +162,6 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     nenv (0.3.0)
-    netrc (0.11.0)
     nio4r (1.2.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -230,10 +225,6 @@ GEM
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     ref (2.0.0)
-    rest-client (2.0.0)
-      http-cookie (>= 1.0.2, < 2.0)
-      mime-types (>= 1.16, < 4.0)
-      netrc (~> 0.8)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -304,9 +295,6 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.2)
       execjs (>= 0.3.0, < 3)
-    unf (0.1.4)
-      unf_ext
-    unf_ext (0.0.7.2)
     unicode-display_width (0.1.1)
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
@@ -338,16 +326,13 @@ DEPENDENCIES
   less
   less-rails
   marco-polo
-  nokogiri (>= 1.6.7.2)
   pg
   poltergeist
   pry-rails
   rack-mini-profiler
   rails (= 5.0.0)
   rails-controller-testing
-  rails-html-sanitizer (~> 1.0.3)
   rails_12factor
-  rest-client (>= 1.8.0)
   rspec-rails
   sass-rails (~> 5.0.0)
   simplecov
