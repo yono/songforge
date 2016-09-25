@@ -75,7 +75,7 @@ group :development, :test do
   gem 'marco-polo'
 
   # BDD library with rails
-  gem 'rspec-rails', '~> 3.1.0'
+  gem 'rspec-rails'
 
   # for controller test
   gem 'rails-controller-testing'
