@@ -88,10 +88,6 @@ group :development, :test do
 
   # fixture replacement
   gem 'factory_girl_rails'
-
-  # static metrics tools
-  gem 'code_hunter'
-  gem 'rubocop', require: false
 end
 
 group :production do
