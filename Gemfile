@@ -16,6 +16,8 @@ gem 'pg'
 # rails preloader
 gem 'spring'
 
+gem 'bootstrap-sass', '~> 3.3.6'
+
 # object-oriented view helper
 gem 'active_decorator'
 
