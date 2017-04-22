@@ -7,14 +7,8 @@ gem 'rails', '>= 5.0.0.1'
 # application server
 gem 'thin'
 
-# css framework
-gem 'twitter-bootstrap-rails'
-
 # pagination
 gem 'kaminari'
-
-# css pre-processor with rails
-gem 'less-rails'
 
 # database adapter
 gem 'pg'
