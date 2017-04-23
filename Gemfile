@@ -2,10 +2,10 @@ source 'https://rubygems.org'
 
 ruby '2.4.0'
 
-gem 'rails', '>= 5.0.0.1'
+gem 'rails', '5.0.1'
 
 # application server
-gem 'thin'
+gem 'puma'
 
 # pagination
 gem 'kaminari'
