@@ -5,15 +5,15 @@ module ApplicationHelper
   end
 
   def edit_icon_link(path)
-    link_to '<i class="fa fa-pencil"></i>'.html_safe, path
+    link_to '', path, class: 'span glyphicon glyphicon-pencil'
   end
 
   def delete_icon_link(delete_obj)
-    link_to '<i class="fa fa-trash-o"></i>'.html_safe, delete_obj, method: :delete, data: { confirm: 'Are you sure?' }
+    link_to '', delete_obj, method: :delete, data: { confirm: 'Are you sure?' }, class: 'span glyphicon glyphicon-trash'
   end
 
   def search_icon_link(song)
-    link_to '<i class="fa fa-search"></li>'.html_safe, song.lyric_url, target: '_blank'
+    link_to '', song.lyric_url, target: '_blank', class: 'span glyphicon glyphicon-search'
   end
 
   def table_css_classes

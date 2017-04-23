@@ -1,11 +1,11 @@
 # coding: utf-8
 module SongDecorator
   def star_link
+    icon = 'star-empty'
     if sang?
-      link_to '<i class="fa fa-star"></i>'.html_safe, singing_song_path(self)
-    else
-      link_to '<i class="fa fa-star-o"></i>'.html_safe, singing_song_path(self)
+      icon = 'star'
     end
+    link_to '', singing_song_path(self), class: "span glyphicon glyphicon-#{icon}"
   end
 
   def song_link
