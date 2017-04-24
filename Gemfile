@@ -39,6 +39,9 @@ gem 'therubyracer', platforms: :ruby
 # JavaScript compressor
 gem 'uglifier', '>= 2.7.2'
 
+# management environment variables by .env
+gem 'dotenv-rails'
+
 group :development do
   # application process manager
   gem 'foreman'
