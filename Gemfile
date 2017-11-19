@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.4.0'
 
-gem 'rails', '5.0.3'
+gem 'rails', '5.1.4'
 
 # application server
 gem 'puma'
@@ -28,7 +28,7 @@ gem 'jquery-rails', '>= 4.0.4'
 gem 'sass-rails',   '~> 5.0.0'
 
 # javascript pre-processor
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails'
 
 # css pre-processor
 gem 'less'
