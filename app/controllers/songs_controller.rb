@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   before_action :authenticate
-  before_action :set_song, only: [:show, :edit, :update, :destroy]
+  before_action :set_song, only: [:show, :edit, :update, :destroy, :singing]
 
   def index
     song_num = 100
@@ -25,39 +25,31 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     
-    respond_to do |format|
-      if @song.save
-        flash[:notice] = 'Song was successfully created.'
-        format.html { redirect_to @song }
-      else
-        format.html { render action: 'new' }
-      end
+
+    if @song.save
+      flash[:notice] = 'Song was successfully created.'
+      redirect_to @song
+    else
+      render action: :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @song.update_attributes(song_params)
-        flash[:notice] = 'Song was successfully updated.'
-        format.html { redirect_to @song }
-      else
-        format.html { render action: 'edit' }
-      end
+    if @song.update_attributes(song_params)
+      flash[:notice] = 'Song was successfully updated.'
+      redirect_to @song
+    else
+      render action: :edit
     end
   end
 
   def destroy
     @song.destroy
-
-    respond_to do |format|
-      format.html { redirect_to songs_url }
-    end
+    redirect_to songs_url
   end
 
   def singing
-    @song = Song.find(params[:id])
     @song.singing!
-
     redirect_to songs_url
   end
 
