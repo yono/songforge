@@ -4,7 +4,7 @@ module SessionsHelper
   end
 
   def sign_out
-    session[:username] = nil
+    reset_session
   end
 
   def authenticate
