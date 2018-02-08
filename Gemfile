@@ -86,7 +86,7 @@ group :development, :test do
   gem 'guard-rspec'
 
   # fixture replacement
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
 end
 
 group :production do
