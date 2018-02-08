@@ -55,7 +55,7 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = 'random'
 
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
 
   # for rails-controller-testing
   [:controller, :view, :request].each do |type|
