@@ -109,3 +109,4 @@ group :test do
   # javascript driver on test
   gem 'poltergeist'
 end
+gem 'nokogiri', '>= 1.8.2'
