@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe SongDecorator do
   describe '.star_link' do

@@ -102,11 +102,9 @@ group :test do
 
   # acceptance test framework for web applications
   gem 'capybara'
-  # for rspec with capybara
-  gem 'database_cleaner'
   # for capybara debug
   gem 'launchy'
   # javascript driver on test
-  gem 'poltergeist'
+  gem 'selenium-webdriver'
 end
 gem 'nokogiri', '>= 1.8.2'
