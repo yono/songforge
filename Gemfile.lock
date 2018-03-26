@@ -349,6 +349,7 @@ DEPENDENCIES
   kaminari
   launchy
   less
+  loofah (>= 2.2.1)
   marco-polo
   nokogiri (>= 1.8.2)
   pg (~> 0.21)
@@ -358,6 +359,7 @@ DEPENDENCIES
   rack-mini-profiler
   rails (= 5.1.4)
   rails-controller-testing
+  rails-html-sanitizer (>= 1.0.4)
   rails_12factor
   rspec-rails
   sass-rails (~> 5.0.0)

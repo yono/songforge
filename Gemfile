@@ -110,3 +110,5 @@ group :test do
   gem 'poltergeist'
 end
 gem 'nokogiri', '>= 1.8.2'
+gem 'loofah', '>= 2.2.1'
+gem 'rails-html-sanitizer', '>= 1.0.4'
