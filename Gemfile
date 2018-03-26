@@ -11,7 +11,7 @@ gem 'puma'
 gem 'kaminari'
 
 # database adapter
-gem 'pg'
+gem 'pg', '~> 0.21'
 
 # rails preloader
 gem 'spring'
