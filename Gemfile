@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.4.1'
 
-gem 'rails', '5.1.4'
+gem 'rails', '5.2.0'
 
 # application server
 gem 'puma'
@@ -41,6 +41,8 @@ gem 'uglifier', '>= 2.7.2'
 
 # management environment variables by .env
 gem 'dotenv-rails'
+
+gem 'bootsnap', require: false
 
 group :development do
   # application process manager
