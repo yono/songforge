@@ -7,7 +7,7 @@ FactoryBot.define do
     end
 
     factory :invalid_song do
-      name nil
+      name { nil }
     end
   end
 end
