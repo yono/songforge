@@ -5,7 +5,9 @@ module SongDecorator
     if sang?
       icon = 'star'
     end
-    link_to '', singing_song_path(self), class: "span glyphicon glyphicon-#{icon}"
+    link_to singing_song_path(self), class: "span" do
+      fa_icon icon
+    end
   end
 
   def song_link
