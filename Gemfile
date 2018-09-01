@@ -16,7 +16,8 @@ gem 'pg', '~> 0.21'
 # rails preloader
 gem 'spring'
 
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap', '~> 4.1.3'
+gem 'font-awesome-rails'
 
 # object-oriented view helper
 gem 'active_decorator'
@@ -29,12 +30,6 @@ gem 'sass-rails',   '~> 5.0.0'
 
 # javascript pre-processor
 gem 'coffee-rails'
-
-# css pre-processor
-gem 'less'
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer', platforms: :ruby
 
 # JavaScript compressor
 gem 'uglifier', '>= 2.7.2'
