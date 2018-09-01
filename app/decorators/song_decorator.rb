@@ -1,7 +1,7 @@
 # coding: utf-8
 module SongDecorator
   def star_link
-    icon = 'star-empty'
+    icon = 'star-o'
     if sang?
       icon = 'star'
     end
