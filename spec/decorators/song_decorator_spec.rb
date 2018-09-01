@@ -7,7 +7,7 @@ describe SongDecorator do
         song = create(:song)
         song.singing!
         decorate song
-        expect(song.star_link).to eq("<a class=\"span glyphicon glyphicon-star\" href=\"/songs/#{song.id}/singing\"></a>")
+        expect(song.star_link).to eq("<a class=\"span\" href=\"/songs/#{song.id}/singing\"><i class=\"fa fa-star\"></i></a>")
       end
     end
 
@@ -15,7 +15,7 @@ describe SongDecorator do
       it 'returns link to blank star' do
         song = create(:song)
         decorate song
-        expect(song.star_link).to eq("<a class=\"span glyphicon glyphicon-star-empty\" href=\"/songs/#{song.id}/singing\"></a>")
+        expect(song.star_link).to eq("<a class=\"span\" href=\"/songs/#{song.id}/singing\"><i class=\"fa fa-star-empty\"></i></a>")
       end
     end
   end
