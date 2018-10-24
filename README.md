@@ -28,16 +28,16 @@ build docker containers
 $ docker-compose build
 ```
 
-create DB and migrate
-
-```bash
-$ docker-compose run web bin/rake db:create db:migrate
-```
-
 launch server
 
 ```bash
-$ docker-compose run --rm --service-ports web
+$ docker-compose up
+```
+
+create DB and migrate
+
+```bash
+$ docker-compose exec web bin/rake db:create db:migrate
 ```
 
 ```
