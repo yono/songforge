@@ -23,10 +23,7 @@ development: &development
 test:
   <<: *development
   database: songforge_test
-  host: localhost
   pool: 5
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
 
 production:
   adapter: postgresql
