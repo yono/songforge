@@ -11,6 +11,7 @@ SongForge organize songs for karaoke.
 * Ruby 2.5.1
 * bundler
 * PostgreSQL
+* Docker (for development)
 
 ## Getting Started
 
@@ -21,31 +22,25 @@ $ git clone https://github.com/yono/songforge.git
 $ cd songforge
 ```
 
-install gems by bundler
+build docker containers
 
 ```bash
-$ bundle install --path vendor/bundle
-```
-
-migrate
-
-```bash
-$ bundle exec rake db:migrate
-```
-
-prepare `.env` file.
-
-```bash
-$ echo 'SECRET_TOKEN=random_string_as_secret_token' > .env`
+$ docker-compose build
 ```
 
 launch server
 
 ```bash
-$ bundle exec foreman start
+$ docker-compose up
 ```
-or
+
+create DB and migrate
 
 ```bash
-$ bundle exec rails s
+$ docker-compose exec web bin/rake db:create db:migrate
+```
+
+```
+login user: user
+password: password
 ```
