@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     member do
       get :singing
       get :lyrics_image
+      get :pinning
     end
   end
 
