@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   before_action :authenticate
-  before_action :set_song, only: [:show, :edit, :update, :destroy, :singing, :pinning]
+  before_action :set_song, only: [:show, :edit, :update, :destroy, :singing, :pinning, :remove_pin]
 
   def index
     song_num = 100
@@ -55,6 +55,11 @@ class SongsController < ApplicationController
 
   def pinning
     @song.pinning!
+    redirect_to songs_url
+  end
+
+  def remove_pin
+    @song.remove_pin!
     redirect_to songs_url
   end
 

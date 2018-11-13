@@ -28,6 +28,11 @@ class Song < ApplicationRecord
     save!
   end
 
+  def remove_pin!
+    self.pinned_at = nil
+    save!
+  end
+
   def sang?
     last_sang_at.present?
   end
