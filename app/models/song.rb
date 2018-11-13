@@ -23,6 +23,11 @@ class Song < ApplicationRecord
     sing_log.save!
   end
 
+  def pinning!
+    self.pinned_at = Time.zone.now
+    save!
+  end
+
   def sang?
     last_sang_at.present?
   end
