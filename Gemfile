@@ -39,6 +39,8 @@ gem 'dotenv-rails'
 
 gem 'bootsnap', require: false
 
+gem 'parser', '~> 2.5.1.0'
+
 group :development do
   # application process manager
   gem 'foreman'
