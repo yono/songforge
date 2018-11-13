@@ -10,6 +10,18 @@ module SongDecorator
     end
   end
 
+  def pin_link
+    icon = 'pinterest-p'
+    link = pinning_song_path(self)
+    if pinned?
+      icon = 'map-pin'
+      link = remove_pin_song_path(self)
+    end
+    link_to link, class: "span" do
+      fa_icon icon
+    end
+  end
+
   def song_link
     if artist.present?
       link_to "#{name} [#{artist.name}]", self

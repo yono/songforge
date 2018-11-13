@@ -8,6 +8,7 @@
   <thead>
   <tr>
     <th></th>
+    <th></th>
     <th><%= Song.human_attribute_name('name') -%></th>
     <th></th>
     <th></th>
@@ -17,12 +18,17 @@
   <tbody>
   <% @songs.each do |song| -%>
   <tr>
-    <td><%= song.star_link -%></td>
+    <% if song.sang? -%>
+      <td><%= song.pin_link -%></td>
+      <td><%= song.star_link -%></td>
+    <% else %>
+      <td colspan=2><%= song.star_link -%></td>
+    <% end -%>
     <td><%= song.song_link -%></td>
     <td><%= edit_icon_link edit_song_path(song) -%></td>
     <td><%= search_icon_link song -%></td>
   </tr>
-  <% end %>
+  <% end -%>
   </tbody>
 </table>
 

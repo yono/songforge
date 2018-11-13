@@ -15,6 +15,7 @@ class Song < ApplicationRecord
 
   def singing!
     self.last_sang_at = DateTime.now
+    self.pinned_at = nil
     save!
     sing_log = SingLog.new(song_id: id)
     sing_log.song_name = name
@@ -22,8 +23,22 @@ class Song < ApplicationRecord
     sing_log.save!
   end
 
+  def pinning!
+    self.pinned_at = Time.zone.now
+    save!
+  end
+
+  def remove_pin!
+    self.pinned_at = nil
+    save!
+  end
+
   def sang?
     last_sang_at.present?
+  end
+
+  def pinned?
+    !!pinned_at
   end
 
   def youtube_v
