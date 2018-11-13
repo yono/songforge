@@ -32,6 +32,10 @@ class Song < ApplicationRecord
     last_sang_at.present?
   end
 
+  def pinned?
+    !!pinned_at
+  end
+
   def youtube_v
     return nil if movie_url.nil?
 
