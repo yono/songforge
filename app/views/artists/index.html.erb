@@ -4,20 +4,20 @@
 
 <table class="<%= table_css_classes -%>">
   <thead>
-  <tr>
-    <th><%= Artist.human_attribute_name('name') -%></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <tr>
+      <th><%= Artist.human_attribute_name('name') -%></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
 
   <tbody>
   <% @artists.each do |artist| %>
-  <tr>
-    <td><%= link_to artist.name, artist %></td>
-    <td><%= edit_icon_link edit_artist_path(artist) -%></td>
-    <td><%= delete_icon_link artist -%></td>
-  </tr>
+    <tr>
+      <td><%= link_to artist.name, artist %></td>
+      <td><%= edit_icon_link edit_artist_path(artist) -%></td>
+      <td><%= delete_icon_link artist -%></td>
+    </tr>
   <% end %>
   </tbody>
 </table>

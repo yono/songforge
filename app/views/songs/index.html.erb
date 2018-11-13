@@ -1,34 +1,34 @@
 <span id="num_of_songs"><%= t('.num_of_songs', num: @all_songs.size) -%></span>
 
 <p>
-<%= new_button t('songs.new.title'), new_song_path -%>
+  <%= new_button t('songs.new.title'), new_song_path -%>
 </p>
 
 <table class="<%= table_css_classes -%>">
   <thead>
-  <tr>
-    <th></th>
-    <th></th>
-    <th><%= Song.human_attribute_name('name') -%></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th><%= Song.human_attribute_name('name') -%></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
 
   <tbody>
-  <% @songs.each do |song| -%>
-  <tr>
-    <% if song.sang? -%>
-      <td><%= song.pin_link -%></td>
-      <td><%= song.star_link -%></td>
-    <% else %>
-      <td colspan=2><%= song.star_link -%></td>
+    <% @songs.each do |song| -%>
+      <tr>
+        <% if song.sang? -%>
+          <td><%= song.pin_link -%></td>
+          <td><%= song.star_link -%></td>
+        <% else %>
+          <td colspan=2><%= song.star_link -%></td>
+        <% end -%>
+        <td><%= song.song_link -%></td>
+        <td><%= edit_icon_link edit_song_path(song) -%></td>
+        <td><%= search_icon_link song -%></td>
+      </tr>
     <% end -%>
-    <td><%= song.song_link -%></td>
-    <td><%= edit_icon_link edit_song_path(song) -%></td>
-    <td><%= search_icon_link song -%></td>
-  </tr>
-  <% end -%>
   </tbody>
 </table>
 

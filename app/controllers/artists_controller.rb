@@ -43,12 +43,11 @@ class ArtistsController < ApplicationController
 
   private
 
-    def set_artist
-      @artist = Artist.find(params[:id])
-    end
+  def set_artist
+    @artist = Artist.find(params[:id])
+  end
 
-    def artist_params
-      params.require(:artist).permit(:name)
-    end
-
+  def artist_params
+    params.require(:artist).permit(:name)
+  end
 end
