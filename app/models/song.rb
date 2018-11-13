@@ -60,8 +60,7 @@ class Song < ApplicationRecord
 
   def save_artist
     if artist_name.present?
-      artist = Artist.new name: artist_name
-      artist.save!
+      artist = Artist.create!(name: artist_name)
       self.artist_id = artist.id
     end
   end
