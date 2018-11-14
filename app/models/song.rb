@@ -14,13 +14,15 @@ class Song < ApplicationRecord
   default_scope { order('last_sang_at DESC') }
 
   def singing!
-    self.last_sang_at = DateTime.now
-    self.pinned_at = nil
-    save!
-    sing_log = SingLog.new(song_id: id)
-    sing_log.song_name = name
-    sing_log.artist_name = artist.name if artist.present?
-    sing_log.save!
+    ActiveRecord::Base.transaction do
+      self.last_sang_at = DateTime.now
+      self.pinned_at = nil
+      save!
+      sing_log = SingLog.new(song_id: id)
+      sing_log.song_name = name
+      sing_log.artist_name = artist.name if artist.present?
+      sing_log.save!
+    end
   end
 
   def pinning!
