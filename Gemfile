@@ -68,6 +68,7 @@ end
 group :development, :test do
   # irb alternative consosle with rails
   gem 'pry-rails'
+  gem 'pry-byebug'
 
   # extend console prompt
   gem 'marco-polo'
