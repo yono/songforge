@@ -1,22 +1,22 @@
 <table class="<%= table_css_classes -%>">
   <thead>
-  <tr>
-    <th><%= SingLog.human_attribute_name('song_name') -%></th>
-    <th><%= SingLog.human_attribute_name('artist_name') -%></th>
-    <th><%= SingLog.human_attribute_name('sang_at') -%></th>
-    <th></th>
-  </tr>
+    <tr>
+      <th><%= SingLog.human_attribute_name('song_name') -%></th>
+      <th><%= SingLog.human_attribute_name('artist_name') -%></th>
+      <th><%= SingLog.human_attribute_name('sang_at') -%></th>
+      <th></th>
+    </tr>
   </thead>
 
   <tbody>
-  <% @sing_logs.each do |sing_log| %>
-  <tr>
-    <td><%= sing_log.song_link -%></td>
-    <td><%= sing_log.artist_link -%></td>
-    <td><%= sing_log.sang_at %></td>
-    <td><%= delete_icon_link sing_log -%></td>
-  </tr>
-  <% end %>
+    <% @sing_logs.each do |sing_log| %>
+      <tr>
+        <td><%= sing_log.song_link -%></td>
+        <td><%= sing_log.artist_link -%></td>
+        <td><%= sing_log.sang_at %></td>
+        <td><%= delete_icon_link sing_log -%></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 

@@ -3,9 +3,9 @@
     <h2><%=t "activerecord.errors.template.header.other", count: object.errors.count %></h2>
 
     <ul>
-    <% object.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
+      <% object.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
     </ul>
   </div>
 <% end %>
