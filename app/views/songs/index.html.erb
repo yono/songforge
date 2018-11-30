@@ -12,6 +12,7 @@
       <th><%= Song.human_attribute_name('name') -%></th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -27,6 +28,7 @@
         <td><%= song.song_link -%></td>
         <td><%= edit_icon_link edit_song_path(song) -%></td>
         <td><%= search_icon_link song -%></td>
+        <td><%= delete_icon_link song -%></td>
       </tr>
     <% end -%>
   </tbody>
