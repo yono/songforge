@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.5.1'
 
-gem 'rails', '5.2.0'
+gem 'rails', '>= 5.2.1.1'
 
 # application server
 gem 'puma'
@@ -105,3 +105,4 @@ group :test do
   gem 'selenium-webdriver'
 end
 gem 'nokogiri', '>= 1.8.2'
+gem 'activestorage', '>= 5.2.1.1'
