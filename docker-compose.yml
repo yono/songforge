@@ -2,6 +2,8 @@ version: '2'
 services:
   db:
     image: postgres
+    volumes:
+      - db:/var/lib/postgresql/data
   web: &app_base
     build: .
     volumes:
@@ -21,3 +23,6 @@ services:
       - "3035:3035"
     depends_on:
       - db
+volumes:
+  db:
+    driver: local

@@ -15,27 +15,27 @@ ActiveRecord::Schema.define(version: 2018_11_13_131629) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "artists", force: :cascade do |t|
-    t.string   "name",       limit: 255
+  create_table "artists", id: :serial, force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "sing_logs", force: :cascade do |t|
-    t.integer  "song_id"
+  create_table "sing_logs", id: :serial, force: :cascade do |t|
+    t.integer "song_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "song_name",   limit: 255
-    t.string   "artist_name", limit: 255
+    t.string "song_name"
+    t.string "artist_name"
   end
 
-  create_table "songs", force: :cascade do |t|
-    t.string   "name",         limit: 255
-    t.integer  "artist_id"
+  create_table "songs", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.integer "artist_id"
     t.datetime "last_sang_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "movie_url",    limit: 255
+    t.string "movie_url"
     t.datetime "pinned_at"
   end
 

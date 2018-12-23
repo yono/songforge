@@ -13,15 +13,13 @@
     <![endif]-->
 
     <%= stylesheet_link_tag "application", media: "all" %>
-    <%= javascript_pack_tag 'application' %>
+
 
     <!-- For all other devices -->
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'favicon.ico', rel: 'shortcut icon' %>
   </head>
   <body>
-
-  <h1>SmartPhone</h1>
-
+    <%= yield %>
   </body>
 </html>
