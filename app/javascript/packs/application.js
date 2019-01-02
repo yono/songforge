@@ -1,9 +1,9 @@
 import Vue from 'vue'
-import store from '../store.js'
-import App from '../App.vue'
+import store from '../store'
+import App from '../components/App.vue'
 
 document.addEventListener('DOMContentLoaded', () => {
-  const el = document.body.appendChild(document.createElement('hello'))
+  const el = document.body.appendChild(document.createElement('app'))
   const app = new Vue({
     el,
     store,
