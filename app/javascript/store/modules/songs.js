@@ -3,12 +3,6 @@ import axios from '../axios'
 const state = {
   all: [],
   fetched: false,
-  topConfig: {
-    pullText: '↓',
-    triggerText: 'リロード',
-    loadingText: 'リロード',
-    doneText: 'done',
-  },
 }
 
 const getters = {}
