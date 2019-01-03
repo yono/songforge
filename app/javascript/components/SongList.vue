@@ -9,8 +9,8 @@
           </div>
         </template>
         <template slot="right" slot-scope="{ item }">
-          <div class="swipeout-action red" @click="singing(item.id)">
-            <span>おうた</span>
+          <div class="swipeout-action blue" @click="singing(item.id)">
+            <span><v-icon name="microphone"/></span>
           </div>
         </template>
       </swipe-list>
@@ -24,6 +24,8 @@
 <script>
 import { mapState } from 'vuex'
 import { SwipeList, SwipeOut } from 'vue-swipe-actions'
+import 'vue-awesome/icons/microphone'
+import Icon from 'vue-awesome/components/Icon'
 import 'vue-swipe-actions/dist/vue-swipe-actions.css'
 
 // TODO: fetched はローカルステートにする（store に持たせるの微妙かもしれない）
@@ -31,6 +33,7 @@ export default {
   components: {
     SwipeList,
     SwipeOut,
+    'v-icon': Icon,
   },
   computed: {
     ...mapState({
@@ -60,7 +63,6 @@ export default {
   padding: 0 1rem;
   cursor: pointer;
   left: 0;
-  // https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/
   &.blue {
     color: white;
     background-color: rgb(0,122,255);
