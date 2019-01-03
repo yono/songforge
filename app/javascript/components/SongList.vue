@@ -1,19 +1,21 @@
 <template>
   <div>
     <template v-if="fetched">
-      <swipe-list class="card" :items="songs" transition-key="id">
-        <template slot-scope="{ item, index, revealLeft, revealRight, close }">
-          <div class="card-content">
-            <span>{{ item.name }}</span><br/>
-            <span>{{ item.id }}</span>
-          </div>
-        </template>
-        <template slot="right" slot-scope="{ item }">
-          <div class="swipeout-action red">
-            <span>ごみばこ</span>
-          </div>
-        </template>
-      </swipe-list>
+      <pull-to :top-load-method="refresh" :top-config="topConfig">
+        <swipe-list class="card" :items="songs" transition-key="id">
+          <template slot-scope="{ item, index, revealLeft, revealRight, close }">
+            <div class="card-content">
+              <span>{{ item.name }}</span><br/>
+              <span>{{ item.id }}</span>
+            </div>
+          </template>
+          <template slot="right" slot-scope="{ item }">
+            <div class="swipeout-action red">
+              <span>ごみばこ</span>
+            </div>
+          </template>
+        </swipe-list>
+      </pull-to>
     </template>
     <template v-else>
       <span>読み込み中……</span>
@@ -24,19 +26,29 @@
 <script>
 import { mapState } from 'vuex'
 import { SwipeList, SwipeOut } from 'vue-swipe-actions'
+import PullTo from 'vue-pull-to'
 import 'vue-swipe-actions/dist/vue-swipe-actions.css'
 
+// TODO: fetched はローカルステートにする（store に持たせるの微妙かもしれない）
 export default {
   components: {
     SwipeList,
     SwipeOut,
+    PullTo,
   },
   computed: mapState({
     songs: state => state.songs.all,
     fetched: state => state.songs.fetched,
+    topConfig: state => state.songs.topConfig,
   }),
   created () {
     this.$store.dispatch('songs/fetchAllSongs')
+  },
+  methods: {
+    refresh(loaded) {
+      this.$store.dispatch('songs/reloadAllSongs')
+      loaded('done')
+    }
   }
 }
 </script>
