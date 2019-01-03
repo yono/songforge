@@ -57,7 +57,7 @@ export default {
 .swipeout-action {
   display: flex;
   align-items: center;
-  padding: 0 3rem;
+  padding: 0 1rem;
   cursor: pointer;
   left: 0;
   // https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/
@@ -105,6 +105,6 @@ export default {
 	border: 1px solid lightgray;
 }
 .card-content {
-  padding: 1rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
 }
 </style>
