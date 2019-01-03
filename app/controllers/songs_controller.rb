@@ -6,10 +6,6 @@ class SongsController < ApplicationController
     song_num = 100
     @all_songs = Search.search(params[:q])
     @songs = Kaminari.paginate_array(@all_songs).page(params[:page]).per(song_num)
-    respond_to do |format|
-      format.html { render }
-      format.json { render json: @songs.to_json }
-    end
   end
 
   def show
@@ -54,7 +50,10 @@ class SongsController < ApplicationController
 
   def singing
     @song.singing!
-    redirect_to songs_url
+    respond_to do |format|
+      format.html { redirect_to songs_url }
+      format.json { head :ok }
+    end
   end
 
   def pinning

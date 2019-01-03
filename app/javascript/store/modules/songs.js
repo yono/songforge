@@ -19,6 +19,11 @@ const actions = {
     axios.get('/songs.json').then(function(response) {
       commit('setSongs', response.data)
     })
+  },
+  singing ({ commit, dispatch }, payload) {
+    axios.get(`/songs/${payload.id}/singing.json`).then(function(response) {
+      dispatch('reloadAllSongs')
+    })
   }
 }
 
@@ -31,6 +36,12 @@ const mutations = {
   },
   fetched (state) {
     state.fetched = true
+  },
+  setSongToSinging (state, payload) {
+    const newSongs = state.all.filter(function(v){
+      return v.id !== payload.id
+    })
+    state.all = newSongs.concat(payload.response)
   }
 }
 

@@ -88,6 +88,8 @@ group :development, :test do
 
   # fixture replacement
   gem 'factory_bot_rails'
+
+  gem 'jbuilder'
 end
 
 group :production do
