@@ -1,17 +1,23 @@
 <template>
   <div>
-    <swipe-list class="card" :items="songs" transition-key="id">
-      <template slot-scope="{ item, index, revealLeft, revealRight, close }">
-        <div class="card-content">
-          <span>{{ item.name }}</span>
-        </div>
-      </template>
-      <template slot="right" slot-scope="{ item }">
-        <div class="swipeout-action red">
-          <span>ごみばこ</span>
-        </div>
-      </template>
-    </swipe-list>
+    <template v-if="fetched">
+      <swipe-list class="card" :items="songs" transition-key="id">
+        <template slot-scope="{ item, index, revealLeft, revealRight, close }">
+          <div class="card-content">
+            <span>{{ item.name }}</span><br/>
+            <span>{{ item.id }}</span>
+          </div>
+        </template>
+        <template slot="right" slot-scope="{ item }">
+          <div class="swipeout-action red">
+            <span>ごみばこ</span>
+          </div>
+        </template>
+      </swipe-list>
+    </template>
+    <template v-else>
+      <span>読み込み中……</span>
+    </template>
   </div>
 </template>
 
@@ -26,10 +32,11 @@ export default {
     SwipeOut,
   },
   computed: mapState({
-    songs: state => state.songs.all
+    songs: state => state.songs.all,
+    fetched: state => state.songs.fetched,
   }),
   created () {
-    this.$store.dispatch('songs/getAllSongs')
+    this.$store.dispatch('songs/fetchAllSongs')
   }
 }
 </script>
