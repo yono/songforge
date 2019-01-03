@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_to_mobile
-    redirect_to mobile_url if request.variant.smartphone?
+    redirect_to mobile_url if request.variant.smartphone? && !request.format.json?
   end
 end
