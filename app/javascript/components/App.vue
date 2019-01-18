@@ -4,7 +4,7 @@
       <h2>SongForge</h2>
     </div>
     <div id="body">
-      <SongList/>
+      <router-view />
     </div>
     <div id="footer">
       <span>footer</span>
@@ -13,11 +13,7 @@
 </template>
 
 <script>
-import SongList from './SongList.vue'
-
-export default {
-  components: { SongList }
-}
+export default {}
 </script>
 
 <style>

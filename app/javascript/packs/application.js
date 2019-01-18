@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import store from '../store'
+import router from '../router'
 import App from '../components/App.vue'
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -7,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
     el,
     store,
+    router,
     render: h => h(App)
   })
 })
