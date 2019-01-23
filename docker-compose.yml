@@ -2,14 +2,27 @@ version: '2'
 services:
   db:
     image: postgres
-  web:
+    volumes:
+      - db:/var/lib/postgresql/data
+  web: &app_base
     build: .
-    tty: true
-    stdin_open: true
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - .:/songforge
+    tty: true
+    stdin_open: true
+    command: bin/rails s -p 3000 -b '0.0.0.0'
     ports:
       - "3000:3000"
     depends_on:
       - db
+      - webpack
+  webpack:
+    <<: *app_base
+    command: bin/webpack-dev-server
+    ports:
+      - "3035:3035"
+    depends_on:
+      - db
+volumes:
+  db:
+    driver: local

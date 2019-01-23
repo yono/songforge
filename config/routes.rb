@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/sp', to: 'mobile#index', as: :mobile
   resources :sessions, only: [:new, :create, :destroy]
   get    '/signin',  to: 'sessions#new'
   delete '/signout', to: 'sessions#destroy'
