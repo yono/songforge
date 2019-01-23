@@ -10,13 +10,13 @@ const getters = {}
 const actions = {
   fetchAllSongs ({ commit }) {
     commit('fetching')
-    axios.get('/songs.json').then(function(response) {
+    axios.get('/api/songs.json').then(function(response) {
       commit('setSongs', response.data)
       commit('fetched')
     })
   },
   reloadAllSongs ({ commit }) {
-    axios.get('/songs.json').then(function(response) {
+    axios.get('/api/songs.json').then(function(response) {
       commit('setSongs', response.data)
     })
   },
