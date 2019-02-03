@@ -18,4 +18,8 @@ Rails.application.routes.draw do
   resources :artists
 
   root 'songs#index'
+
+  namespace :api, defaults: { format: :json } do
+    resources :songs, only: :index
+  end
 end
