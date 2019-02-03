@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   root 'songs#index'
 
-  namespace :api do
-    resources :songs, only: :index, defaults: { format: :json }
+  namespace :api, defaults: { format: :json } do
+    resources :songs, only: :index
   end
 end
