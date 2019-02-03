@@ -45,6 +45,8 @@ gem 'rack-user_agent'
 
 gem 'webpacker'
 
+gem 'jbuilder'
+
 group :development do
   # application process manager
   gem 'foreman'
@@ -88,8 +90,6 @@ group :development, :test do
 
   # fixture replacement
   gem 'factory_bot_rails'
-
-  gem 'jbuilder'
 end
 
 group :production do
