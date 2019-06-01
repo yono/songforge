@@ -16,9 +16,9 @@ development: &development
   adapter: postgresql
   encoding: unicode
   database: songforge_development
-  host: db
+  host: <%= ENV.fetch('DB_HOST', 'localhost') %>
   pool: 5
-  username: postgres
+  username: <%= ENV.fetch('DB_USERNAME', '') %>
 
 <% if ENV['CI'] %>
 test:
