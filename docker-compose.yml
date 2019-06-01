@@ -16,6 +16,8 @@ services:
     depends_on:
       - db
       - webpack
+    env_file:
+      - docker.env
   webpack:
     <<: *app_base
     command: bin/webpack-dev-server
