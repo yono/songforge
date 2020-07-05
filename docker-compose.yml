@@ -4,7 +4,7 @@ services:
     image: postgres
     volumes:
       - db:/var/lib/postgresql/data
-  web: &app_base
+  web:
     build: .
     volumes:
       - .:/songforge
@@ -15,16 +15,8 @@ services:
       - "3000:3000"
     depends_on:
       - db
-      - webpack
     env_file:
       - docker.env
-  webpack:
-    <<: *app_base
-    command: bin/webpack-dev-server
-    ports:
-      - "3035:3035"
-    depends_on:
-      - db
 volumes:
   db:
     driver: local
