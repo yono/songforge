@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-  skip_before_action :redirect_to_mobile
-
   def new
   end
 
