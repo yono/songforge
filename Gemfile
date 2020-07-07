@@ -16,7 +16,6 @@ gem 'pg', '~> 0.21'
 # rails preloader
 gem 'spring'
 
-gem 'bootstrap', '>= 4.3.1'
 gem 'font-awesome-rails'
 
 # object-oriented view helper
