@@ -14,14 +14,6 @@ class Song < ApplicationRecord
   scope :default_order, ->{ order('last_sang_at DESC') }
   scope :search, ->(query) { Search.execute(query) }
 
-  def api_artist_name
-    if artist.present?
-      artist.name || "Unknown"
-    else
-      "Unknown"
-    end
-  end
-
   def singing!
     ActiveRecord::Base.transaction do
       self.last_sang_at = DateTime.now
