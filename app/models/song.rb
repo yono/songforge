@@ -2,7 +2,7 @@ require 'uri'
 
 class Song < ApplicationRecord
   belongs_to :artist
-  has_many :sing_logs
+  has_many :sing_logs, dependent: :nullify
 
   validates :name, presence: true
   validates :name, uniqueness: { scope: :artist_id }
