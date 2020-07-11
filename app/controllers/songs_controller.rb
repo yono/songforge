@@ -14,7 +14,7 @@ class SongsController < ApplicationController
   def new
     @song = Song.new
     if params[:artist_id].present?
-      artist = Artist.find(params[:artist_id])
+      artist = Artist.find_by(id: params[:artist_id])
       @song.artist = artist if artist.present?
     end
   end
