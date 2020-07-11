@@ -26,7 +26,7 @@ gem 'active_decorator'
 gem 'jquery-rails', '>= 4.0.4'
 
 # css pre-processor with rails
-gem 'sass-rails',   '~> 5.0.0'
+gem 'sass-rails',   '>= 6'
 
 # JavaScript compressor
 gem 'uglifier', '>= 2.7.2'
