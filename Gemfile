@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.6.2'
 
-gem 'rails', '5.2.4.3'
+gem 'rails', '6.0.3.2'
 
 # application server
 gem 'puma'
@@ -26,10 +26,7 @@ gem 'active_decorator'
 gem 'jquery-rails', '>= 4.0.4'
 
 # css pre-processor with rails
-gem 'sass-rails',   '~> 5.0.0'
-
-# javascript pre-processor
-gem 'coffee-rails'
+gem 'sass-rails',   '>= 6'
 
 # JavaScript compressor
 gem 'uglifier', '>= 2.7.2'
@@ -42,8 +39,6 @@ gem 'bootsnap', require: false
 gem 'rack-user_agent'
 
 gem 'webpacker'
-
-gem 'jbuilder'
 
 group :development do
   # application process manager
