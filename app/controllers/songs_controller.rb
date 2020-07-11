@@ -30,7 +30,7 @@ class SongsController < ApplicationController
       flash[:notice] = 'Song was successfully created.'
       redirect_to @song
     else
-      render action: :new
+      render :new
     end
   end
 
@@ -39,7 +39,7 @@ class SongsController < ApplicationController
       flash[:notice] = 'Song was successfully updated.'
       redirect_to @song
     else
-      render action: :edit
+      render :edit
     end
   end
 
