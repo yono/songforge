@@ -12,7 +12,7 @@ module SingLogDecorator
     if exist_artist?
       link_to song.artist.name, song.artist
     else
-      artist_name
+      artist_name || "Unknown"
     end
   end
 end
