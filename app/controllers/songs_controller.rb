@@ -4,7 +4,7 @@ class SongsController < ApplicationController
 
   def index
     song_num = 100
-    @all_songs = Search.search(params[:q])
+    @all_songs = Song.search(params[:q])
     @songs = Kaminari.paginate_array(@all_songs).page(params[:page]).per(song_num)
   end
 
@@ -14,7 +14,7 @@ class SongsController < ApplicationController
   def new
     @song = Song.new
     if params[:artist_id].present?
-      artist = Artist.find(params[:artist_id])
+      artist = Artist.find_by(id: params[:artist_id])
       @song.artist = artist if artist.present?
     end
   end
@@ -25,12 +25,11 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
 
-
     if @song.save
       flash[:notice] = 'Song was successfully created.'
       redirect_to @song
     else
-      render action: :new
+      render :new
     end
   end
 
@@ -39,7 +38,7 @@ class SongsController < ApplicationController
       flash[:notice] = 'Song was successfully updated.'
       redirect_to @song
     else
-      render action: :edit
+      render :edit
     end
   end
 
@@ -50,10 +49,7 @@ class SongsController < ApplicationController
 
   def singing
     @song.singing!
-    respond_to do |format|
-      format.html { redirect_to songs_url }
-      format.json { head :ok }
-    end
+    redirect_to songs_url
   end
 
   def pinning

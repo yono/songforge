@@ -19,7 +19,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @artist.songs.each do |song| -%>
+      <% @artist.songs.default_order.each do |song| -%>
         <tr>
           <td><%= link_to song.name, song %></td>
         </tr>

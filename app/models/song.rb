@@ -2,7 +2,7 @@ require 'uri'
 
 class Song < ApplicationRecord
   belongs_to :artist
-  has_many :sing_logs
+  has_many :sing_logs, dependent: :nullify
 
   validates :name, presence: true
   validates :name, uniqueness: { scope: :artist_id }
@@ -11,15 +11,8 @@ class Song < ApplicationRecord
 
   attr_accessor :artist_name
 
-  default_scope { order('last_sang_at DESC') }
-
-  def api_artist_name
-    if artist.present?
-      artist.name || "Unknown"
-    else
-      "Unknown"
-    end
-  end
+  scope :default_order, ->{ order('last_sang_at DESC') }
+  scope :search, ->(query) { Search.execute(query) }
 
   def singing!
     ActiveRecord::Base.transaction do

@@ -1,8 +1,7 @@
 class Artist < ApplicationRecord
-  has_many :songs
+  has_many :songs, dependent: :nullify
 
-  validates :name, presence: true
-  validates :name, uniqueness: true
+  validates :name, presence: true, uniqueness: true
 
-  default_scope { order('name') }
+  scope :default_order, ->{ order('name') }
 end
