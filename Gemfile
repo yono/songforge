@@ -28,9 +28,6 @@ gem 'jquery-rails', '>= 4.0.4'
 # css pre-processor with rails
 gem 'sass-rails',   '~> 5.0.0'
 
-# javascript pre-processor
-gem 'coffee-rails'
-
 # JavaScript compressor
 gem 'uglifier', '>= 2.7.2'
 
