@@ -25,7 +25,6 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
 
-
     if @song.save
       flash[:notice] = 'Song was successfully created.'
       redirect_to @song
