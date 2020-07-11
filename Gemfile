@@ -39,8 +39,6 @@ gem 'dotenv-rails'
 
 gem 'bootsnap', require: false
 
-gem 'parser', '~> 2.5.1.0'
-
 gem 'rack-user_agent'
 
 gem 'webpacker'
