@@ -18,6 +18,7 @@ describe SingLogDecorator do
         song.singing!
         sing_log = song.sing_logs.first
         song.destroy!
+        sing_log.reload
         decorate sing_log
         expect(sing_log.song_link).to eq sing_log.song_name
       end
@@ -43,6 +44,7 @@ describe SingLogDecorator do
         song.singing!
         sing_log = song.sing_logs.first
         artist.destroy!
+        sing_log.reload
         decorate sing_log
         expect(sing_log.artist_link).to eq sing_log.artist_name
       end

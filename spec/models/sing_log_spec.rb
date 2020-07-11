@@ -27,6 +27,7 @@ describe SingLog do
         song.singing!
         sing_log = song.sing_logs.first
         song.destroy!
+        sing_log.reload
         expect(sing_log.exist_song?).to be false
       end
     end
@@ -50,6 +51,7 @@ describe SingLog do
         song.singing!
         sing_log = song.sing_logs.first
         artist.destroy!
+        sing_log.reload
         expect(sing_log.exist_artist?).to be false
       end
     end
