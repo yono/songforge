@@ -3,5 +3,5 @@ class Artist < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
-  default_scope { order('name') }
+  scope :default_order, ->{ order('name') }
 end

@@ -3,7 +3,7 @@ class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
 
   def index
-    @artists = Artist.page(params[:page]).per(20)
+    @artists = Artist.default_order.page(params[:page]).per(20)
   end
 
   def show
