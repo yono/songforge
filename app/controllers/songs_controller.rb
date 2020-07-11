@@ -4,7 +4,7 @@ class SongsController < ApplicationController
 
   def index
     song_num = 100
-    @all_songs = Search.search(params[:q])
+    @all_songs = Song.search(params[:q])
     @songs = Kaminari.paginate_array(@all_songs).page(params[:page]).per(song_num)
   end
 

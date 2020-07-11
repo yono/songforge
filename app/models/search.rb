@@ -1,19 +1,27 @@
 class Search
-  def self.search(query)
-    pinning = Song.includes(:artist).where.not(pinned_at: nil).reorder('songs.pinned_at DESC').references(:artists)
-    unsing = Song.includes(:artist).where(pinned_at: nil).where(last_sang_at: nil).reorder('songs.created_at DESC').references(:artists)
-    already = Song.includes(:artist).where(pinned_at: nil).where.not(last_sang_at: nil).reorder('last_sang_at ASC').references(:artists)
-
-    unless query.blank?
-      pinning = pinning.where(search_with_word(query))
-      unsing = unsing.where(search_with_word(query))
-      already = already.where(search_with_word(query))
-    end
-
-    pinning.to_a + unsing.to_a + already.to_a
+  def self.execute(query)
+    new(query).search
   end
 
-  def self.search_with_word(query)
+  def search
+    songs = Song.eager_load(:artist).reorder('songs.pinned_at DESC NULLS LAST, songs.created_at DESC, last_sang_at ASC')
+
+    unless query.blank?
+      songs = songs.where(search_with_word(query))
+    end
+
+    songs
+  end
+
+  private
+
+  attr_reader :query
+
+  def initialize(query)
+    @query = query
+  end
+
+  def search_with_word(query)
     q = "%#{query}%"
     [Song, Artist].map {|cond| cond.arel_table[:name].matches(q) }
                   .inject {|cond, i| cond.or i }

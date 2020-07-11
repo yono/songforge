@@ -12,6 +12,7 @@ class Song < ApplicationRecord
   attr_accessor :artist_name
 
   default_scope { order('last_sang_at DESC') }
+  scope :search, ->(query) { Search.execute(query) }
 
   def api_artist_name
     if artist.present?
