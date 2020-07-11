@@ -50,10 +50,7 @@ class SongsController < ApplicationController
 
   def singing
     @song.singing!
-    respond_to do |format|
-      format.html { redirect_to songs_url }
-      format.json { head :ok }
-    end
+    redirect_to songs_url
   end
 
   def pinning
