@@ -40,8 +40,6 @@ gem 'rack-user_agent'
 
 gem 'webpacker'
 
-gem 'jbuilder'
-
 group :development do
   # application process manager
   gem 'foreman'
