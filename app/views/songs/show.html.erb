@@ -39,7 +39,7 @@
     </tr>
     </thead>
     <tbody>
-      <% @song.sing_logs.each do |sing_log| %>
+      <% @song.sing_logs.default_order.each do |sing_log| %>
         <tr>
           <td><%= sing_log.sang_at %></td>
         </tr>

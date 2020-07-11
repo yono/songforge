@@ -1,7 +1,7 @@
 class SingLog < ApplicationRecord
   belongs_to :song
 
-  default_scope { order('created_at DESC') }
+  scope :default_order, ->{ order(created_at: :desc) }
 
   def sang_at
     created_at.strftime('%Y-%m-%d %H:%M')
