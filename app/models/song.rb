@@ -4,14 +4,13 @@ class Song < ApplicationRecord
   belongs_to :artist
   has_many :sing_logs, dependent: :nullify
 
-  validates :name, presence: true
-  validates :name, uniqueness: { scope: :artist_id }
+  validates :name, presence: true, uniqueness: { scope: :artist_id }
 
   before_save :save_artist
 
   attr_accessor :artist_name
 
-  scope :default_order, ->{ order('last_sang_at DESC') }
+  scope :default_order, ->{ order(last_sang_at: :desc) }
   scope :search, ->(query) { Search.execute(query) }
 
   def singing!

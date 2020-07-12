@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'songs#index'
   resources :sessions, only: [:new, :create, :destroy]
   get    '/signin',  to: 'sessions#new'
   delete '/signout', to: 'sessions#destroy'
@@ -8,13 +9,10 @@ Rails.application.routes.draw do
   resources :songs do
     member do
       get :singing
-      get :lyrics_image
       get :pinning
       get :remove_pin
     end
   end
 
   resources :artists
-
-  root 'songs#index'
 end
