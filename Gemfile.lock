@@ -356,7 +356,6 @@ DEPENDENCIES
   kaminari
   launchy
   marco-polo
-  nokogiri (>= 1.8.2)
   pg (~> 0.21)
   pry-byebug
   pry-rails

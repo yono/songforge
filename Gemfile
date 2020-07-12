@@ -103,4 +103,3 @@ group :test do
   # javascript driver on test
   gem 'selenium-webdriver'
 end
-gem 'nokogiri', '>= 1.8.2'
