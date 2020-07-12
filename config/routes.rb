@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'songs#index'
   resources :sessions, only: [:new, :create, :destroy]
   get    '/signin',  to: 'sessions#new'
   delete '/signout', to: 'sessions#destroy'
@@ -14,6 +15,4 @@ Rails.application.routes.draw do
   end
 
   resources :artists
-
-  root 'songs#index'
 end
