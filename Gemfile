@@ -32,7 +32,7 @@ gem 'sass-rails',   '>= 6'
 gem 'uglifier', '>= 2.7.2'
 
 # management environment variables by .env
-gem 'dotenv-rails'
+
 
 gem 'bootsnap', require: false
 
@@ -66,6 +66,7 @@ end
 
 group :development, :test do
   # irb alternative consosle with rails
+  gem 'dotenv-rails'
   gem 'pry-rails'
   gem 'pry-byebug'
 
