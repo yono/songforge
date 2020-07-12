@@ -10,7 +10,7 @@ class Song < ApplicationRecord
 
   attr_accessor :artist_name
 
-  scope :default_order, ->{ order('last_sang_at DESC') }
+  scope :default_order, ->{ order(last_sang_at: :desc) }
   scope :search, ->(query) { Search.execute(query) }
 
   def singing!
