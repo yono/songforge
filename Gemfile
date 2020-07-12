@@ -36,8 +36,6 @@ gem 'uglifier', '>= 2.7.2'
 
 gem 'bootsnap', require: false
 
-gem 'rack-user_agent'
-
 gem 'webpacker'
 
 group :development do
@@ -54,6 +52,7 @@ group :development do
 
   # replace standard rails error page to more useful
   gem 'better_errors'
+
   # provide console to better_errors
   gem 'binding_of_caller'
 
