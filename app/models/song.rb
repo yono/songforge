@@ -4,8 +4,7 @@ class Song < ApplicationRecord
   belongs_to :artist
   has_many :sing_logs, dependent: :nullify
 
-  validates :name, presence: true
-  validates :name, uniqueness: { scope: :artist_id }
+  validates :name, presence: true, uniqueness: { scope: :artist_id }
 
   before_save :save_artist
 
