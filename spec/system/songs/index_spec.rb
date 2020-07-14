@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Songs', type: :system do
+RSpec.describe 'Songs index', type: :system do
   before { test_sign_in }
 
   it 'shows songs index' do
