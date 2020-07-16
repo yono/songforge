@@ -1,5 +1,5 @@
 class SingLog < ApplicationRecord
-  belongs_to :song
+  belongs_to :song, optional: true
 
   scope :default_order, ->{ order(created_at: :desc) }
 
