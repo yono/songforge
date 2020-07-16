@@ -8,6 +8,14 @@ RSpec.describe 'Songs index', type: :system do
     expect(page).to have_content '曲数'
   end
 
+  it 'links to show page' do
+    song = create(:song)
+    visit songs_path
+
+    all('tr')[1].all('td')[1].first(:link).click
+    expect(current_path).to eq song_path(song)
+  end
+
   describe 'singing' do
     before do
       create(:song, name: 'Old Song')
