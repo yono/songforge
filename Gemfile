@@ -46,6 +46,7 @@ end
 group :test do
   gem 'capybara'
   gem 'coveralls', require: false
+  gem 'database_cleaner-active_record'
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'simplecov', require: false
