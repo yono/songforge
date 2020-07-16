@@ -4,7 +4,7 @@ class Search
   end
 
   def search
-    songs = Song.eager_load(:artist).order('songs.pinned_at DESC NULLS LAST, songs.last_sang_at ASC NULLS FIRST, songs.created_at DESC')
+    songs = Song.default_scoped.eager_load(:artist).order('songs.pinned_at DESC NULLS LAST, songs.last_sang_at ASC NULLS FIRST, songs.created_at DESC')
 
     unless query.blank?
       songs = songs.where(search_with_word(query))

@@ -1,6 +1,6 @@
 module SessionsHelper
-  def sign_in
-    session[:username] = ENV['BASIC_AUTH_USERNAME']
+  def sign_in(user)
+    session[:username] = user
   end
 
   def sign_out
