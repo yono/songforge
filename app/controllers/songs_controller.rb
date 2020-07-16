@@ -34,7 +34,7 @@ class SongsController < ApplicationController
   end
 
   def update
-    if @song.update_attributes(song_params)
+    if @song.update(song_params)
       flash[:notice] = 'Song was successfully updated.'
       redirect_to @song
     else

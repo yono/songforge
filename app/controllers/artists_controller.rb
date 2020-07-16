@@ -28,7 +28,7 @@ class ArtistsController < ApplicationController
   end
 
   def update
-    if @artist.update_attributes(artist_params)
+    if @artist.update(artist_params)
       flash[:notice] = 'Artist was successfully updated.'
       redirect_to @artist
     else
