@@ -211,7 +211,7 @@ GEM
       shellany (~> 0.0)
     parser (3.0.1.1)
       ast (~> 2.4.1)
-    pg (0.21.0)
+    pg (1.2.3)
     popper_js (2.9.2)
     pry (0.13.1)
       coderay (~> 1.1)
@@ -384,7 +384,7 @@ DEPENDENCIES
   kaminari
   launchy
   marco-polo
-  pg (~> 0.21)
+  pg (~> 1.2)
   pry-byebug
   pry-rails
   puma
