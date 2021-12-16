@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.6.6'
 
-gem 'rails', '6.0.3.7'
+gem 'rails', '6.1.4.4'
 
 gem 'active_decorator'
 gem 'bootsnap', require: false
