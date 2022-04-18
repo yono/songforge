@@ -13,7 +13,6 @@ gem 'kaminari'
 gem 'pg', '~> 1.2'
 gem 'puma'
 gem 'sass-rails',   '>= 6'
-gem 'spring'
 gem 'uglifier', '>= 2.7.2'
 gem 'webpacker'
 
