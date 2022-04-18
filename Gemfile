@@ -33,8 +33,6 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'guard-rspec'
   gem 'marco-polo'
-  gem 'pry-byebug'
-  gem 'pry-rails'
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
 end
