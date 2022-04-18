@@ -19,16 +19,13 @@ gem 'webpacker'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'i18n-tasks'
   gem 'rack-mini-profiler'
 end
 
 group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
-  gem 'guard-rspec'
   gem 'rspec-rails'
-  gem 'spring-commands-rspec'
 end
 
 group :production do
