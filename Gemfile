@@ -17,12 +17,8 @@ gem 'uglifier', '>= 2.7.2'
 gem 'webpacker'
 
 group :development do
-  gem 'awesome_print'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'foreman'
-  gem 'hirb'
-  gem 'hirb-unicode'
   gem 'i18n-tasks'
   gem 'rack-mini-profiler'
 end
@@ -31,7 +27,6 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'guard-rspec'
-  gem 'marco-polo'
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
 end
