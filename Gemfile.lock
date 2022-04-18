@@ -222,7 +222,7 @@ GEM
     rack (2.2.3)
     rack-mini-profiler (2.3.2)
       rack (>= 1.2.0)
-    rack-proxy (0.6.5)
+    rack-proxy (0.7.2)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -340,7 +340,7 @@ GEM
       unf_ext
     unf_ext (0.0.7.7)
     unicode-display_width (0.1.1)
-    webpacker (5.4.0)
+    webpacker (5.4.3)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
