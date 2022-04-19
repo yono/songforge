@@ -40,4 +40,5 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'simplecov', require: false
+  gem 'rspec_junit_formatter'
 end

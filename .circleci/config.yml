@@ -50,6 +50,6 @@ jobs:
           name: run tests
           command: |
             mkdir tmp/test-results
-            bundle exec rspec --out tmp/test-results/rspec.xml spec
+            bundle exec rspec --format RspecJunitFormatter --out tmp/test-results/rspec.xml spec
       - store_test_results:
           path: tmp/test-results
