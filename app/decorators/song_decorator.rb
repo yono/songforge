@@ -1,24 +1,24 @@
 # coding: utf-8
 module SongDecorator
   def star_link
-    icon = 'star-o'
+    icon = 'star'
     if sang?
-      icon = 'star'
+      icon = 'star-fill'
     end
     link_to singing_song_path(self), class: "span" do
-      fa_icon icon
+      tag.i class: "bi bi-#{icon}"
     end
   end
 
   def pin_link
-    icon = 'pinterest-p'
+    icon = 'pin'
     link = pinning_song_path(self)
     if pinned?
-      icon = 'map-pin'
+      icon = 'pin-fill'
       link = remove_pin_song_path(self)
     end
     link_to link, class: "span" do
-      fa_icon icon
+      tag.i class: "bi bi-#{icon}"
     end
   end
 
