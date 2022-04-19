@@ -6,15 +6,13 @@ gem 'rails', '7.0.2.3'
 
 gem 'active_decorator'
 gem 'bootsnap', require: false
-gem 'bootstrap', '>= 4.3.1'
-gem 'jquery-rails', '>= 4.0.4'
 gem 'kaminari'
 gem 'pg', '~> 1.3'
 gem 'puma'
-gem 'sass-rails',   '>= 6'
 gem 'uglifier', '>= 2.7.2'
 gem 'jsbundling-rails'
 gem 'cssbundling-rails'
+gem 'sprockets-rails'
 
 group :development do
   gem 'better_errors'
