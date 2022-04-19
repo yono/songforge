@@ -13,11 +13,12 @@ gem 'uglifier', '>= 2.7.2'
 gem 'jsbundling-rails'
 gem 'cssbundling-rails'
 gem 'sprockets-rails'
+gem 'turbo-rails'
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'rack-mini-profiler'
+  #gem 'rack-mini-profiler'
   gem 'listen', require: false
 end
 
