@@ -20,6 +20,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'rack-mini-profiler'
+  gem 'listen', require: false
 end
 
 group :development, :test do
