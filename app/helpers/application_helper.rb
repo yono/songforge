@@ -6,19 +6,19 @@ module ApplicationHelper
 
   def edit_icon_link(path)
     link_to path, class: 'span' do
-      fa_icon "pencil"
+      tag.i class: 'bi bi-pencil-fill'
     end
   end
 
   def delete_icon_link(delete_obj)
     link_to delete_obj, method: :delete, data: { confirm: 'Are you sure?' }, class: 'span' do
-      fa_icon "trash"
+      tag.i class: 'bi bi-trash'
     end
   end
 
   def search_icon_link(song)
     link_to song.lyric_url, target: '_blank', class: 'span' do
-      fa_icon "search"
+      tag.i class: 'bi bi-search'
     end
   end
 
