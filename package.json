@@ -10,5 +10,7 @@
   "engines": {
     "node": "12.16.2"
   },
-  "build": "webpack --config ./config/webpack/webpack.config.js"
+  "scripts": {
+    "build": "webpack --config ./config/webpack/webpack.config.js"
+  }
 }
