@@ -35,7 +35,7 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'coveralls', require: false
+  gem 'coveralls_reborn', '~> 0.24.0', require: false
   gem 'database_cleaner-active_record'
   gem 'launchy'
   gem 'selenium-webdriver'
