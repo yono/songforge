@@ -10,21 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_11_121426) do
-
+ActiveRecord::Schema[7.0].define(version: 2020_07_11_121426) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "artists", id: :serial, force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
   end
 
   create_table "sing_logs", id: :serial, force: :cascade do |t|
     t.integer "song_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.string "song_name"
     t.string "artist_name"
   end
@@ -32,11 +31,11 @@ ActiveRecord::Schema.define(version: 2020_07_11_121426) do
   create_table "songs", id: :serial, force: :cascade do |t|
     t.string "name"
     t.integer "artist_id"
-    t.datetime "last_sang_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "last_sang_at", precision: nil
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.string "movie_url"
-    t.datetime "pinned_at"
+    t.datetime "pinned_at", precision: nil
   end
 
 end
