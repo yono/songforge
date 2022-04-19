@@ -7,7 +7,6 @@ gem 'rails', '7.0.2.3'
 gem 'active_decorator'
 gem 'bootsnap', require: false
 gem 'bootstrap', '>= 4.3.1'
-gem 'font-awesome-rails'
 gem 'jquery-rails', '>= 4.0.4'
 gem 'kaminari'
 gem 'pg', '~> 1.3'
