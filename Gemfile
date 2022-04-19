@@ -14,7 +14,6 @@ gem 'pg', '~> 1.3'
 gem 'puma'
 gem 'sass-rails',   '>= 6'
 gem 'uglifier', '>= 2.7.2'
-gem 'webpacker'
 gem 'jsbundling-rails'
 
 group :development do
