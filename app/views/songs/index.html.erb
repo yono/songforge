@@ -8,33 +8,25 @@
 </div>
 
 <table class="<%= table_css_classes -%>">
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th><%= Song.human_attribute_name('name') -%></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @songs.each do |song| -%>
+  <%= turbo_frame_tag "songs-list", data: { turbo_action: :advance } do %>
+    <thead>
       <tr>
-        <% if song.sang? -%>
-          <td><%= song.pin_link -%></td>
-          <td><%= song.star_link -%></td>
-        <% else %>
-          <td colspan=2><%= song.star_link -%></td>
-        <% end -%>
-        <td><%= song.song_link -%></td>
-        <td><%= edit_icon_link edit_song_path(song) -%></td>
-        <td><%= search_icon_link song -%></td>
-        <td><%= delete_icon_link song -%></td>
+        <th></th>
+        <th></th>
+        <th><%= Song.human_attribute_name('name') -%></th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end -%>
-  </tbody>
+    </thead>
+
+    <tbody>
+      <%= turbo_frame_tag "songs-page-#{@songs.current_page}" do %>
+        <%= render @songs %>
+        <%= turbo_frame_tag "songs-page-#{@songs.next_page}", loading: :lazy, src: path_to_next_page(@songs) %>
+      <% end %>
+    </tbody>
+  <% end %>
 </table>
 
 <%= paginate @songs -%>
