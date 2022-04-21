@@ -1,8 +1,11 @@
-<span id="num_of_songs"><%= t('.num_of_songs', num: @all_songs.size) -%></span>
-
-<p>
-  <%= link_to t('songs.new.title'), new_song_path, class: 'btn btn-outline-secondary btn-sm' -%>
-</p>
+<div class='d-flex justify-content-between align-items-center my-2'>
+  <div>
+    <%= t('.num_of_songs', num: @all_songs.size) -%>
+    </div>
+  <div>
+    <%= link_to t('songs.new.title'), new_song_path, class: 'btn btn-outline-secondary btn-sm' -%>
+  </div>
+</div>
 
 <table class="<%= table_css_classes -%>">
   <thead>
