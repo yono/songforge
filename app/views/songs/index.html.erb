@@ -7,26 +7,20 @@
   </div>
 </div>
 
-<table class="<%= table_css_classes -%>">
+<div class="card-body">
   <%= turbo_frame_tag "songs-list", data: { turbo_action: :advance } do %>
-    <thead>
-      <tr>
-        <th></th>
-        <th></th>
-        <th><%= Song.human_attribute_name('name') -%></th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
+    <div class="row border">
+      <div class="col-1 border"></div>
+      <div class="col-1 border"></div>
+      <div class="col-7 border"><%= Song.human_attribute_name('name') -%></div>
+      <div class="col-1 border"></div>
+      <div class="col-1 border"></div>
+      <div class="col-1 border"></div>
+    </div>
 
-    <tbody>
-      <%= turbo_frame_tag "songs-page-#{@songs.current_page}" do %>
-        <%= render @songs %>
-        <%= turbo_frame_tag "songs-page-#{@songs.next_page}", loading: :lazy, src: path_to_next_page(@songs) %>
-      <% end %>
-    </tbody>
+    <%= turbo_frame_tag "songs-page-#{@songs.current_page}" do %>
+      <%= render @songs %>
+      <%= turbo_frame_tag "songs-page-#{@songs.next_page}", loading: :lazy, src: path_to_next_page(@songs) %>
+    <% end %>
   <% end %>
-</table>
-
-<%= paginate @songs -%>
+</div>
