@@ -42,7 +42,7 @@ class SongsController < ApplicationController
 
   def destroy
     @song.destroy
-    redirect_to songs_url
+    flash.now.notice = "曲情報を削除しました。"
   end
 
   def singing
