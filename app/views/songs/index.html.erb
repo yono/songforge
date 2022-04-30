@@ -3,7 +3,7 @@
     <%= t('.num_of_songs', num: @all_songs.size) -%>
     </div>
   <div>
-    <%= link_to t('songs.new.title'), new_song_path, class: 'btn btn-outline-secondary btn-sm' -%>
+    <%= link_to t('songs.new.title'), new_song_path, class: 'btn btn-outline-secondary btn-sm', data: { turbo_frame: dom_id(Song.new) } -%>
   </div>
 </div>
 
@@ -19,7 +19,10 @@
     </div>
 
     <%= turbo_frame_tag "songs-page-#{@songs.current_page}" do %>
-      <%= render @songs %>
+      <%= turbo_frame_tag Song.new %>
+      <div id="songs">
+        <%= render @songs %>
+      </div>
       <%= turbo_frame_tag "songs-page-#{@songs.next_page}", loading: :lazy, src: path_to_next_page(@songs) %>
     <% end %>
   <% end %>
