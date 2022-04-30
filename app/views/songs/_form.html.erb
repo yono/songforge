@@ -1,18 +1,14 @@
 <%= turbo_frame_tag song do %>
   <%= form_for(song) do |f| %>
     <div class="row border">
-      <div class="col-2 border"></div>
-      <div class="col-4 border">
-        <%= f.text_field :name %>
-      </div>
-      <div class="col-3 border">
-        <%= f.collection_select 'artist_id', Artist.all, :id, :name, {include_blank: true} %>
-        <%= f.text_field :artist_name, placeholder: t('helpers.placeholder.song.artist_name') %>
-      </div>
-      <div class="col-3 border">
-        <%= f.submit class: 'btn btn-sm btn-outline-primary', data: {disable_with: t('dictionary.form.disable_with')} %>
-         <%= link_to "キャンセル", song, class: "btn btn-sm btn-outline-secondary" %>
-      </div>
+      <span>曲名</span>
+      <%= f.text_field :name %>
+      <span>アーティスト</span>
+      <%= f.collection_select 'artist_id', Artist.all, :id, :name, {include_blank: true} %>
+      <%= f.text_field :artist_name, placeholder: t('helpers.placeholder.song.artist_name') %>
+      <span>アクション</span>
+      <%= f.submit class: 'btn btn-sm btn-outline-primary', data: {disable_with: t('dictionary.form.disable_with')} %>
+      <%= link_to "キャンセル", song, class: "btn btn-sm btn-outline-secondary" %>
     </div>
   <% end %>
 <% end %>
