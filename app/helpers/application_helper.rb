@@ -11,7 +11,7 @@ module ApplicationHelper
   end
 
   def delete_icon_link(delete_obj)
-    link_to delete_obj, method: :delete, data: { confirm: 'Are you sure?' }, class: 'span' do
+    link_to delete_obj, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, class: 'span' do
       tag.i class: 'bi bi-trash'
     end
   end
@@ -24,5 +24,9 @@ module ApplicationHelper
 
   def table_css_classes
     'table table-striped table-bordered table-sm'
+  end
+
+  def turbo_stream_flash
+    turbo_stream.update "flash", partial: "flash"
   end
 end

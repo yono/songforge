@@ -26,25 +26,23 @@ class SongsController < ApplicationController
     @song = Song.new(song_params)
 
     if @song.save
-      flash[:notice] = 'Song was successfully created.'
-      redirect_to @song
+      flash.now.notice = "曲情報を登録しました。"
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
     if @song.update(song_params)
-      flash[:notice] = 'Song was successfully updated.'
-      redirect_to @song
+      flash.now.notice = "曲情報を更新しました。"
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @song.destroy
-    redirect_to songs_url
+    flash.now.notice = "曲情報を削除しました。"
   end
 
   def singing

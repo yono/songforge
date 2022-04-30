@@ -1,0 +1,14 @@
+<%= turbo_frame_tag song do %>
+  <div class="row border">
+    <% if song.sang? -%>
+      <div class="col-1 border"><%= song.pin_link -%></div>
+      <div class="col-1 border"><%= song.star_link -%></div>
+    <% else %>
+      <div class="col-2 border"><%= song.star_link -%></div>
+    <% end -%>
+    <div class="col-7 border"><%= song.name -%></div>
+    <div class="col-1 border"><%= edit_icon_link edit_song_path(song) -%></div>
+    <div class="col-1 border"><%= search_icon_link song -%></div>
+    <div class="col-1 border"><%= delete_icon_link song -%></div>
+  </div>
+<% end %>
