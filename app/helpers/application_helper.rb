@@ -25,4 +25,8 @@ module ApplicationHelper
   def table_css_classes
     'table table-striped table-bordered table-sm'
   end
+
+  def turbo_stream_flash
+    turbo_stream.update "flash", partial: "flash"
+  end
 end
