@@ -7,7 +7,7 @@ gem 'rails', '7.0.2.3'
 gem 'active_decorator'
 gem 'bootsnap', require: false
 gem 'kaminari'
-gem 'pg', '~> 1.3'
+gem 'pg', '~> 1.4'
 gem 'puma'
 gem 'uglifier', '>= 2.7.2'
 gem 'jsbundling-rails'
